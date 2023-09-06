@@ -4,19 +4,19 @@ using senai.inlock.webApi.Domain;
 using senai.inlock.webApi.Interface;
 using senai.inlock.webApi.Repository;
 
-
 namespace senai.inlock.webApi.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class JogosController : ControllerBase
+    public class EstudioController : ControllerBase
     {
-        private IJogoRepository _jogoRepository { get; set; }
+        private IEstudioRepository _EstudioReposiory { get; set; }
 
-        public JogosController()
+
+        public EstudioController()
         {
-            _jogoRepository = new JogoRepository();
+            _EstudioReposiory = new EstudioRepository();
         }
 
 
@@ -25,9 +25,8 @@ namespace senai.inlock.webApi.Controller
         {
             try
             {
-                List<JogoDomain> ListaJogo = _jogoRepository.ListaJogos(); 
-
-                return Ok(ListaJogo);
+                List<EstudioDomain> ListaEstudios = _EstudioReposiory.ListaEstudios();
+                return Ok(ListaEstudios);
             }
             catch (Exception erro)
             {
@@ -37,18 +36,18 @@ namespace senai.inlock.webApi.Controller
         }
 
         [HttpPost]
-        public IActionResult Post(JogoDomain novoJogo)
+        public IActionResult Post(EstudioDomain novoEstudio)
         {
             try
             {
-                _jogoRepository.CadastraJogos(novoJogo);
-                
+                _EstudioReposiory.Cadastrar(novoEstudio);
                 return StatusCode(204);
             }
             catch (Exception erro)
             {
 
-               return BadRequest(erro.Message);
+                return BadRequest(
+                    erro.Message);
             }
         }
     }

@@ -10,8 +10,10 @@
 
         public string? Descricao{ get; set; }
 
-        public DateTime DataLançamento { get; set; }
+        public DateTime DataLancamento { get; set; }
 
         public string? Valor { get; set; }
+
+        public EstudioDomain? Estudio { get; set; }
     }
 }
