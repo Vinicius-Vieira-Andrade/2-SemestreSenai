@@ -7,7 +7,7 @@ namespace senai.inlock.webApi.Repository
     public class UsuarioRepository : IUsuarioRepository
     {
 
-        private string StringConexao = "Data Source = note12-s14; Initial Catalog = Filmes_Tarde; User Id = sa; pwd = Senai@134";
+        private string StringConexao = "Data Source = DESKTOP-6V592M2\\SQLEXPRESS; Initial Catalog = inlock_games_tarde; Integrated Security = true;";
 
         public UsuarioDomain Login(string Email, string Senha)
         {
@@ -32,7 +32,10 @@ namespace senai.inlock.webApi.Repository
                         loginUser.IdUsuario = Convert.ToInt32(rdr[0]);
                         loginUser.IdTipoUsuario = Convert.ToInt32(rdr[1]);
                         loginUser.Email = rdr[nameof(UsuarioDomain.Email)].ToString();
+
+                        return loginUser;
                     }
+                    return null;
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi.Domain;
 using senai.inlock.webApi.Interface;
@@ -10,6 +11,7 @@ namespace senai.inlock.webApi.Controller
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    [Authorize]
     public class JogosController : ControllerBase
     {
         private IJogoRepository _jogoRepository { get; set; }

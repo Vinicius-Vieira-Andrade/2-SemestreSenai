@@ -33,16 +33,16 @@ builder.Services.AddAuthentication(Options =>
             ValidateLifetime = true,
 
             //Forma de criptografa e ainda validação da chave de autentificação
-            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("jogos-chave-autenticacao-webapi-dev")),
+            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("inlock-chave-autenticacao-webapi-dev")),
 
             //Valida o tempo de expiração do token
             ClockSkew = TimeSpan.FromMinutes(5),
 
             //De onde está vindo (issuer)
-            ValidIssuer = "webapi.filmes.tarde",
+            ValidIssuer = "webapi.jogos.inlock",
 
             //Para onde está indo (audience)
-            ValidAudience = "webapi.filmes.tarde"
+            ValidAudience = "webapi.jogos.inlock"
         };
     });
 
@@ -62,7 +62,7 @@ builder.Services.AddSwaggerGen(options =>
         Description = "API para gerenciamento de jogos",
         Contact = new OpenApiContact
         {
-            Name = "Vinicius Vieira",
+            Name = "InlockGames",
             Url = new Uri("https://github.com/Vinicius-Vieira-Andrade")
         }
     });
