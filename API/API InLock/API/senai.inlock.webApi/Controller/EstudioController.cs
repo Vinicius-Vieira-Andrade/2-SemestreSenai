@@ -21,7 +21,10 @@ namespace senai.inlock.webApi.Controller
             _EstudioReposiory = new EstudioRepository();
         }
 
-
+        /// <summary>
+        /// Endpoint que acessa o método Listar os estúdios
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -36,7 +39,11 @@ namespace senai.inlock.webApi.Controller
                 return BadRequest(erro.Message);
             }
         }
-
+        /// <summary>
+        /// Endpoint que acessa o método Cadastrar os estúdios
+        /// </summary>
+        /// <param name="novoEstudio"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(EstudioDomain novoEstudio)
         {

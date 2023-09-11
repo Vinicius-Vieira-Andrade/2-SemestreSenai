@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai.inlock.webApi</name>
+    </assembly>
+    <members>
+        <member name="M:senai.inlock.webApi.Controller.EstudioController.Get">
+            <summary>
+            Endpoint que acessa o método Listar os estúdios
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.EstudioController.Post(senai.inlock.webApi.Domain.EstudioDomain)">
+            <summary>
+            Endpoint que acessa o método Cadastrar os estúdios
+            </summary>
+            <param name="novoEstudio"></param>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.JogosController.Get">
+            <summary>
+            Endpoint que acessa o método Listar jogos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.JogosController.Post(senai.inlock.webApi.Domain.JogoDomain)">
+            <summary>
+            Endpoint que acessa o método Cadastrar jogoss
+            </summary>
+            <param name="novoJogo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:senai.inlock.webApi.Controller.UsuarioController.LoginPost(senai.inlock.webApi.Domain.UsuarioDomain)">
+            <summary>
+            Endpoint que acessa o método Logar
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

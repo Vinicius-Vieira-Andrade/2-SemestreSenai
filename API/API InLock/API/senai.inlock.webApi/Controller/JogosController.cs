@@ -21,7 +21,10 @@ namespace senai.inlock.webApi.Controller
             _jogoRepository = new JogoRepository();
         }
 
-
+        /// <summary>
+        /// Endpoint que acessa o método Listar jogos
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -38,6 +41,11 @@ namespace senai.inlock.webApi.Controller
             }
         }
 
+        /// <summary>
+        /// Endpoint que acessa o método Cadastrar jogos
+        /// </summary>
+        /// <param name="novoJogo"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post(JogoDomain novoJogo)
         {

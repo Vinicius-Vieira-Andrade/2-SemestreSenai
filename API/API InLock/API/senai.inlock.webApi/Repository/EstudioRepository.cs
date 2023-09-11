@@ -6,7 +6,7 @@ namespace senai.inlock.webApi.Repository
 {
     public class EstudioRepository : IEstudioRepository
     {
-        private string StringConexao = "Data Source = DESKTOP-6V592M2\\SQLEXPRESS; Initial Catalog = inlock_games_tarde; Integrated Security = true";
+        private string StringConexao = "Data Source = NOTE12-S14; Initial Catalog = inlock_games_tarde; User Id = sa; pwd = Senai@134";
         public void Cadastrar(EstudioDomain novoEstudio)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))

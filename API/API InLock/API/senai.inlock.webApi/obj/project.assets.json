@@ -1640,19 +1640,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Senhor Vinicius\\.nuget\\packages\\": {}
+    "C:\\Users\\53685550837\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Senhor Vinicius\\Desktop\\2-SemestreSenai\\API\\API InLock\\API\\senai.inlock.webApi\\senai.inlock.webApi.csproj",
+      "projectUniqueName": "C:\\Users\\53685550837\\Desktop\\2-SemestreSenai\\API\\API InLock\\API\\senai.inlock.webApi\\senai.inlock.webApi.csproj",
       "projectName": "senai.inlock.webApi",
-      "projectPath": "C:\\Users\\Senhor Vinicius\\Desktop\\2-SemestreSenai\\API\\API InLock\\API\\senai.inlock.webApi\\senai.inlock.webApi.csproj",
-      "packagesPath": "C:\\Users\\Senhor Vinicius\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Senhor Vinicius\\Desktop\\2-SemestreSenai\\API\\API InLock\\API\\senai.inlock.webApi\\obj\\",
+      "projectPath": "C:\\Users\\53685550837\\Desktop\\2-SemestreSenai\\API\\API InLock\\API\\senai.inlock.webApi\\senai.inlock.webApi.csproj",
+      "packagesPath": "C:\\Users\\53685550837\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\53685550837\\Desktop\\2-SemestreSenai\\API\\API InLock\\API\\senai.inlock.webApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Senhor Vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\53685550837\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1714,7 +1714,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

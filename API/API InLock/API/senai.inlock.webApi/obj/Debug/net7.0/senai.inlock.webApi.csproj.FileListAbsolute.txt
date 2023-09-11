@@ -136,3 +136,5 @@ C:\Users\Senhor Vinicius\Desktop\2-SemestreSenai\API\API InLock\API\senai.inlock
 C:\Users\Senhor Vinicius\Desktop\2-SemestreSenai\API\API InLock\API\senai.inlock.webApi\obj\Debug\net7.0\senai.inlock.webApi.pdb
 C:\Users\Senhor Vinicius\Desktop\2-SemestreSenai\API\API InLock\API\senai.inlock.webApi\obj\Debug\net7.0\senai.inlock.webApi.genruntimeconfig.cache
 C:\Users\Senhor Vinicius\Desktop\2-SemestreSenai\API\API InLock\API\senai.inlock.webApi\obj\Debug\net7.0\ref\senai.inlock.webApi.dll
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API InLock\API\senai.inlock.webApi\bin\Debug\net7.0\senai.inlock.webApi.xml
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API InLock\API\senai.inlock.webApi\obj\Debug\net7.0\senai.inlock.webApi.xml
