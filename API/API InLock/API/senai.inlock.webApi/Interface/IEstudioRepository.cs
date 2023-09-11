@@ -8,6 +8,7 @@ namespace senai.inlock.webApi.Interface
 
         void Cadastrar(EstudioDomain novoEstudio);
 
-        EstudioDomain ListaIdEstudio(int id);
+        //EXTRA DESAFIO (Em andamento)
+        List<EstudioDomain> BuscarEstudios();
     }
 }

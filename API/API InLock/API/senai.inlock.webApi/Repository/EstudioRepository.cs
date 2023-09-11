@@ -7,12 +7,51 @@ namespace senai.inlock.webApi.Repository
     public class EstudioRepository : IEstudioRepository
     {
         private string StringConexao = "Data Source = NOTE12-S14; Initial Catalog = inlock_games_tarde; User Id = sa; pwd = Senai@134";
+
+
+        //EXTRA DESAFIO (Em andamento)
+        public List<EstudioDomain> BuscarEstudios()
+        {
+            List<EstudioDomain> ListaEstudios = new List<EstudioDomain>();
+
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryAllEstudios = "SELECT Estudio.IdEstudio, Estudio.Nome FROM Estudio";
+
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryAllEstudios, con))
+                {
+                    SqlDataReader rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        EstudioDomain mostraEstudio = new EstudioDomain()
+                        {
+                            IdEstudio = Convert.ToInt32(rdr["IdEstudios"]),
+                            Nome = rdr["Nome"].ToString()
+                        };
+
+                        JogoDomain mostraJogo = new JogoDomain()
+                        {
+                            IdJogo = Convert.ToInt32(rdr["IdJogo"]),
+                            
+                        };
+                    }
+
+
+
+                }
+            }
+        }
+
         public void Cadastrar(EstudioDomain novoEstudio)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 string queryAdd = "Insert into Estudio values (@Nome)";
-               
+
 
                 using (SqlCommand cmd = new SqlCommand(queryAdd, con))
                 {
@@ -24,6 +63,9 @@ namespace senai.inlock.webApi.Repository
                 }
             }
         }
+
+
+
 
         public List<EstudioDomain> ListaEstudios()
         {
@@ -38,7 +80,7 @@ namespace senai.inlock.webApi.Repository
 
                 using (SqlCommand cmd = new SqlCommand(queryLista, con))
                 {
-                    rdr= cmd.ExecuteReader();
+                    rdr = cmd.ExecuteReader();
 
                     while (rdr.Read())
                     {
@@ -53,11 +95,6 @@ namespace senai.inlock.webApi.Repository
                 }
             }
             return ListaEstudio;
-        }
-
-        public EstudioDomain ListaIdEstudio(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -9,5 +9,7 @@ namespace senai.inlock.webApi.Domain
 
         public string? Nome { get; set; }
 
+        public List<JogoDomain> ListaJogos;
+
     }
 }

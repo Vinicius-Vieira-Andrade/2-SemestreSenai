@@ -45,6 +45,7 @@ namespace senai.inlock.webApi.Controller
         /// <param name="novoEstudio"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post(EstudioDomain novoEstudio)
         {
             try

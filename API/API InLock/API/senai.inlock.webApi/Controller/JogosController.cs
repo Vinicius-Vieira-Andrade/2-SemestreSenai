@@ -36,7 +36,6 @@ namespace senai.inlock.webApi.Controller
             }
             catch (Exception erro)
             {
-
                 return BadRequest(erro.Message);
             }
         }
@@ -47,6 +46,7 @@ namespace senai.inlock.webApi.Controller
         /// <param name="novoJogo"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Post(JogoDomain novoJogo)
         {
             try
