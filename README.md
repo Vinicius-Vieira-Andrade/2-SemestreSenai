@@ -1,1 +1,1 @@
-# Local para armazenar todo contéudo relativo ao primeiro semestre do curso. ;0
+# Local para armazenar todo contéudo relativo ao segundo semestre do curso. ;0
