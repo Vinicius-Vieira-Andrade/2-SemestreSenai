@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using webapi.inlock.tarde.Contexts;
 using webapi.inlock.tarde.Domains;
@@ -12,22 +13,48 @@ namespace webapi.inlock.tarde.Repositories
 
         public void Atualizar(Guid id, Estudio estudio)
         {
-            throw new NotImplementedException();
+            Estudio estudioBuscado = AcessaBanco.Estudios.Find(id)!;
+
+            if (estudioBuscado != null)
+            {
+                estudioBuscado.Nome = estudio.Nome;
+            }
+
+            AcessaBanco.Update(estudioBuscado!);
+            AcessaBanco.SaveChanges();
         }
 
         public Estudio BuscaPorId(Guid id)
         {
-            throw new NotImplementedException();
+            Estudio buscaEstudio = AcessaBanco.Estudios.Find(id)!;
+
+            if (buscaEstudio != null)
+            {
+                return AcessaBanco.Estudios.FirstOrDefault(x => x.IdEstudio == id)!;
+            }
+
+            return null;
+
         }
 
         public void Cadastrar(Estudio estudio)
         {
-            throw new NotImplementedException();
+            AcessaBanco.Estudios.Add(estudio);
+
+            AcessaBanco.SaveChanges();
         }
 
         public void Deletar(Guid id)
         {
-            throw new NotImplementedException();
+            Estudio buscaEstudio = AcessaBanco.Estudios.Find(id)!;
+
+            if (buscaEstudio != null)
+            {
+                AcessaBanco.Estudios.Remove(buscaEstudio);
+            }
+
+            AcessaBanco.SaveChanges();
+
         }
 
         public List<Estudio> Listar()
