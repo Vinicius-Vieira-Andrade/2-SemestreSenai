@@ -34,6 +34,19 @@ namespace Inlock_CodeFirst.Controllers
             }
         }
 
+        public IActionResult GetByEmailAndPassword()
+        {
+            try
+            {
+                return null;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
 
 
     }

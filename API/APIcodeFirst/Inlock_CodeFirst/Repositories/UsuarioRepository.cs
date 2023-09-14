@@ -34,7 +34,27 @@ namespace Inlock_CodeFirst.Repositories
 
         public Usuario Login(string Email, string Senha)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var usuarioBuscado = AcessaBanco.Usuario.FirstOrDefault(u => u.Email == Email);
+
+                if (usuarioBuscado != null)
+                {
+                    bool confere = Criptografia.ComparaHash(Senha, usuarioBuscado.Senha!);
+
+                     if (confere )
+                    {
+                        return usuarioBuscado;
+                    }
+                }
+
+                return null!;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
