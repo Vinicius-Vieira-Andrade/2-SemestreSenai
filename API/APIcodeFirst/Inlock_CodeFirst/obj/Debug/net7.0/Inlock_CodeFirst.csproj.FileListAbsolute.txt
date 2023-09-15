@@ -75,3 +75,4 @@ C:\Users\53685550837\Desktop\2-SemestreSenai\API\APIcodeFirst\Inlock_CodeFirst\o
 C:\Users\53685550837\Desktop\2-SemestreSenai\API\APIcodeFirst\Inlock_CodeFirst\obj\Debug\net7.0\Inlock_CodeFirst.genruntimeconfig.cache
 C:\Users\53685550837\Desktop\2-SemestreSenai\API\APIcodeFirst\Inlock_CodeFirst\obj\Debug\net7.0\ref\Inlock_CodeFirst.dll
 C:\Users\53685550837\Desktop\2-SemestreSenai\API\APIcodeFirst\Inlock_CodeFirst\bin\Debug\net7.0\BCrypt.Net-Next.dll
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\APIcodeFirst\Inlock_CodeFirst\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
