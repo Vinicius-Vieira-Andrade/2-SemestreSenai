@@ -34,19 +34,19 @@ namespace Inlock_CodeFirst.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult GetByEmailAndPassword()
-        {
-            try
-            {
-                return null;
-            }
-            catch (Exception erro)
-            {
+        //[HttpGet]
+        //public IActionResult GetByEmailAndPassword()
+        //{
+        //    try
+        //    {
+        //        return null;
+        //    }
+        //    catch (Exception erro)
+        //    {
 
-                return BadRequest(erro.Message);
-            }
-        }
+        //        return BadRequest(erro.Message);
+        //    }
+        //}
 
 
 
