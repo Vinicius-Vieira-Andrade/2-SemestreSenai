@@ -18,11 +18,23 @@ namespace WebApiEvent_.Repositories
         {
             try
             {
-                Usuario usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.Email == email)!;
+                Usuario usuarioBuscado = ctx.Usuario.Select(u => new Usuario
+                {
+                    IdTipoUsuario = u.IdUsuario,
+                    Nome = u.Nome,
+                    Email = u.Email,
+                    Senha = u.Senha,
+
+                    TipoUsuario = new TipoUsuario
+                    {
+                        IdTipoUsuario = u.IdUsuario,
+                        Titulo = u.TipoUsuario.Titulo
+                    }
+                }).FirstOrDefault(u => u.Email == email)!;
 
                 if (usuarioBuscado != null)
                 {
-                    bool confere = Criptografia.ComparaHash(senha, usuarioBuscado.Senha);
+                    bool confere = Criptografia.ComparaHash(senha, usuarioBuscado.Senha!);
 
                     if (confere)
                     {
@@ -47,6 +59,7 @@ namespace WebApiEvent_.Repositories
                     IdTipoUsuario = u.IdUsuario,
                     Nome = u.Nome,
                     Email = u.Email,
+                    Senha = u.Senha,
 
                     TipoUsuario = new TipoUsuario
                     {

@@ -15,12 +15,43 @@ namespace WebApiEvent_.Repositories
 
         public void Atualizar(Guid id, TipoUsuario tipoUsuario)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TipoUsuario usuarioBuscado = ctx.TipoUsuario.FirstOrDefault(u => u.IdTipoUsuario == id)!;
+
+                if (usuarioBuscado != null)
+                {
+                    usuarioBuscado.Titulo = tipoUsuario.Titulo;
+                }
+
+                ctx.Update(usuarioBuscado);
+                ctx.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao atualizar tipo de usuario");
+            }
         }
 
-        public TipoUsuario BuscarPorId()
+        public TipoUsuario BuscarPorId(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TipoUsuario tipoUsuarioBuscado = ctx.TipoUsuario.Find(id)!;
+
+                if (tipoUsuarioBuscado != null)
+                {
+                    return ctx.TipoUsuario.FirstOrDefault(x => x.IdTipoUsuario == id)!;
+                }
+
+                return null;
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao buscar por id");
+            }
         }
 
         public void Cadastrar(TipoUsuario tipousuario)
@@ -40,7 +71,22 @@ namespace WebApiEvent_.Repositories
 
         public void Deletar(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                TipoUsuario tipoUsuarioBuscado = ctx.TipoUsuario.Find(id)!;
+
+                if (tipoUsuarioBuscado != null)
+                {
+                    ctx.TipoUsuario.Remove(tipoUsuarioBuscado);
+                }
+
+                ctx.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao deletar tipo de usuario");
+            }
         }
 
         public List<TipoUsuario> Listar()

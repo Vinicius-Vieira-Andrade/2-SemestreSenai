@@ -37,15 +37,16 @@ namespace WebApiEvent_.Controllers
 
 
                 var claims = new[]
-           {
+                {    
                     new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome!),
                     new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdTipoUsuario.ToString())
                 };
 
 
 
-                var Key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("eventplus-key-webapi"));
+                var Key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("aaaaaaaaaaaaa-maior-autenticacao-tarde-eventplus-key-webapi"));
 
 
                 var creds = new SigningCredentials(Key, SecurityAlgorithms.HmacSha256);

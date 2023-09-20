@@ -30,7 +30,7 @@ builder.Services.AddAuthentication(Options =>
             ValidateLifetime = true,
 
             //Forma de criptografa e ainda validação da chave de autentificação
-            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("eventplus-key-webapi")),
+            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("aaaaaaaaaaaaa-maior-autenticacao-tarde-eventplus-key-webapi")),
 
             //Valida o tempo de expiração do token
             ClockSkew = TimeSpan.FromMinutes(3),
@@ -53,20 +53,22 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
-        Title = "API Jogos",
-        Description = "API para gerenciamento de jogos",
+        Title = "Api Event+",
+        Description = "API para gerenciar eventos e usuários",
         Contact = new OpenApiContact
         {
-            Name = "InlockGames",
+            Name = "EventPlus+",
             Url = new Uri("https://github.com/Vinicius-Vieira-Andrade")
         }
     });
-    //Configura o swagger para usar arquivos XML
-    var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 
 
-    //Usando a autenticação no swagger
+
+
+    //var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    //options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+
+
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
     {
         Name = "Authorization",
@@ -76,6 +78,7 @@ builder.Services.AddSwaggerGen(options =>
         In = ParameterLocation.Header,
         Description = "Value: Bearer TokenJWT"
     });
+
 
 
     options.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -93,7 +96,6 @@ builder.Services.AddSwaggerGen(options =>
         }
     });
 
-
 });
 
 
@@ -105,6 +107,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+});
+
+
 
 app.UseHttpsRedirection();
 

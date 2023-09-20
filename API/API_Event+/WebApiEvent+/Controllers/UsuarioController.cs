@@ -10,7 +10,7 @@ namespace WebApiEvent_.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize]
+    
     public class UsuarioController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
@@ -32,6 +32,36 @@ namespace WebApiEvent_.Controllers
             {
 
                 throw new Exception("Erro ao acessar rota de cadastrar usuario");
+            }
+        }
+
+
+        [HttpGet("{id}")]
+        public IActionResult GetId(Guid id)
+        {
+            try
+            {
+                return Ok(_usuarioRepository.BuscarPorId(id));
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao acessar método buscar por id");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetByEmailSenha(string email, string senha)
+        {
+            try
+            {
+                
+                return Ok(_usuarioRepository.BuscarPorEmailESenha(email, senha));
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao acessar método buscar pelo email e senha");
             }
         }
     }

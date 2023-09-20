@@ -10,7 +10,7 @@ namespace WebApiEvent_.Interfaces
 
         List<TipoUsuario> Listar();
 
-        TipoUsuario BuscarPorId();
+        TipoUsuario BuscarPorId(Guid id);
 
         void Atualizar(Guid id, TipoUsuario tipoUsuario);
     }
