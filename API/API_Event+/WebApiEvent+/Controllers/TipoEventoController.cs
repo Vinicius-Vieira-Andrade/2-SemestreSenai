@@ -24,6 +24,7 @@ namespace WebApiEvent_.Controllers
         {
             try
             {
+
                 return Ok(_TipoEventoRepository.Listar());
             }
             catch (Exception)
@@ -49,7 +50,7 @@ namespace WebApiEvent_.Controllers
         }
 
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Put(Guid id, TipoEvento tipoEvento)
         {
             try
@@ -63,6 +64,39 @@ namespace WebApiEvent_.Controllers
                 throw new Exception("Erro ao acessar o método de atualizar");
             }
         }
+
+
+        [HttpPost]
+        public IActionResult Post(TipoEvento tipoEvento)
+        {
+            try
+            {
+                _TipoEventoRepository.Cadastrar(tipoEvento);
+                return StatusCode(201);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao acessar o método cadastrar");
+            }
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(Guid id)
+        {
+            try
+            {
+                _TipoEventoRepository.Deletar(id);
+
+                return NoContent();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Erro ao acessar o método deletar");
+            }
+        }
+
 
 
     }

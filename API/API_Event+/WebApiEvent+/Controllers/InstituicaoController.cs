@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebApiEvent_.Contexts;
 using WebApiEvent_.Domains;
 using WebApiEvent_.Interfaces;
 using WebApiEvent_.Repositories;
@@ -10,13 +9,13 @@ namespace WebApiEvent_.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class EventoController : ControllerBase
+    public class InstituicaoController : ControllerBase
     {
-        private IEvento _eventoRepository { get; set; }
+        private Iinstituicao _instituicao;
 
-        public EventoController()
+        public InstituicaoController()
         {
-            _eventoRepository = new EventoRepository();
+            _instituicao = new InstituicaoRepository();
         }
 
         [HttpGet]
@@ -24,7 +23,7 @@ namespace WebApiEvent_.Controllers
         {
             try
             {
-                return Ok(_eventoRepository.Listar());
+                return Ok(_instituicao.Listar());
             }
             catch (Exception)
             {
@@ -33,18 +32,17 @@ namespace WebApiEvent_.Controllers
             }
         }
 
-
-        [HttpPost]
-        public IActionResult Post(Evento evento)
+        [HttpGet("{id}")]
+        public IActionResult GetId(Guid id)
         {
             try
             {
-                _eventoRepository.Cadastrar(evento);
-                return StatusCode(201);
+                return Ok(_instituicao.BuscarId(id));
             }
             catch (Exception)
             {
-                throw new Exception("Erro ao acessar método cadastrar");
+
+                throw new Exception("Erro ao acessa método ");
             }
         }
 
@@ -53,7 +51,8 @@ namespace WebApiEvent_.Controllers
         {
             try
             {
-                _eventoRepository.Deletar(id);
+                _instituicao.Deletar(id);
+
                 return NoContent();
             }
             catch (Exception)
@@ -64,33 +63,33 @@ namespace WebApiEvent_.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(Guid id, Evento evento)
+        public IActionResult Put(Guid id, Instituicao ins)
         {
             try
             {
-                _eventoRepository.Atualizar(id, evento);
+                _instituicao.Atualizar(id, ins);
                 return NoContent();
             }
             catch (Exception)
             {
 
-                throw new Exception("Erro ao acessar método atualizar");            }
+                throw new Exception("Erro ao acessar método atualizar");
+            }
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetId(Guid id)
+        [HttpPost]
+        public IActionResult Post(Instituicao ins)
         {
             try
             {
-                _eventoRepository.BuscarId(id);
+                _instituicao.Cadastrar(ins);
                 return StatusCode(201);
             }
             catch (Exception)
             {
 
-                throw new Exception("Erro ao acessar método listar pelo id");
+                throw new Exception("Erro ao acessar método cadastrar");
             }
         }
-
     }
 }

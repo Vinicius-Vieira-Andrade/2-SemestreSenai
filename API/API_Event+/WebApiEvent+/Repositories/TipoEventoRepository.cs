@@ -16,14 +16,14 @@ namespace WebApiEvent_.Repositories
 
         public void Atualizar(Guid id, TipoEvento tipoEvento)
         {
-            TipoEvento tipoEventoBuscado = ctx.TipoEvento.FirstOrDefault(u => u.IdTipoEvento == id)!;
+            TipoEvento tipoEventoBuscado = ctx.TipoEvento.Find(id)!;
 
             if (tipoEventoBuscado != null)
             {
                 tipoEventoBuscado.Titulo = tipoEvento.Titulo;
             }
 
-            ctx.TipoEvento.Update(tipoEvento);
+            ctx.TipoEvento.Update(tipoEventoBuscado!);
             ctx.SaveChanges();
 
         }
@@ -32,7 +32,7 @@ namespace WebApiEvent_.Repositories
         {
             try
             {
-                TipoEvento tipoEventoBuscado = ctx.TipoEvento.Find(id);
+                TipoEvento tipoEventoBuscado = ctx.TipoEvento.Find(id)!;
 
                 if (tipoEventoBuscado != null)
                 {
