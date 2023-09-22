@@ -27,9 +27,13 @@ namespace WebApiEvent_.Repositories
 
                     TipoUsuario = new TipoUsuario
                     {
-                        IdTipoUsuario = u.IdUsuario,
+                        IdTipoUsuario = u.IdTipoUsuario,
                         Titulo = u.TipoUsuario.Titulo
                     }
+
+                    
+
+                    
                 }).FirstOrDefault(u => u.Email == email)!;
 
                 if (usuarioBuscado != null)

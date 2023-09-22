@@ -74,7 +74,7 @@ namespace WebApiEvent_.Controllers
             catch (Exception)
             {
 
-                throw new Exception("Erro ao acessar método atualizar");            }
+                throw ¶new Exception("Erro ao acessar método atualizar");            }
         }
 
         [HttpGet("{id}")]
@@ -82,8 +82,8 @@ namespace WebApiEvent_.Controllers
         {
             try
             {
-                _eventoRepository.BuscarId(id);
-                return StatusCode(201);
+                
+                return StatusCode(201, _eventoRepository.BuscarId(id));
             }
             catch (Exception)
             {

@@ -16,7 +16,7 @@ namespace WebApiEvent_.Repositories
         {
             Evento eventoBuscar = ctx.Evento.Find(id)!;
 
-            if (eventoBuscar != null) 
+            if (eventoBuscar != null)
             {
                 eventoBuscar.Descricao = evento.Descricao;
                 eventoBuscar.DataEvento = evento.DataEvento;
@@ -25,28 +25,45 @@ namespace WebApiEvent_.Repositories
                 eventoBuscar.IdInstituicao = evento.IdInstituicao;
             }
 
-            ctx.Evento.Update(evento);
+            ctx.Evento.Update(eventoBuscar);
             ctx.SaveChanges();
 
         }
 
         public Evento BuscarId(Guid id)
         {
-            Evento eventoBuscado = ctx.Evento.Find(id)!;
+            Evento eventoBuscado = ctx.Evento.Select(u => new Evento
 
-            if (eventoBuscado != null)
             {
-                return ctx.Evento.FirstOrDefault(x => x.IdEvento == id)!;
-            }
+                IdEvento = u.IdEvento,
+                IdTipoEvento = u.IdTipoEvento,
+                DataEvento = u.DataEvento,
+                Descricao = u.Descricao,
+                Nome = u.Nome,
 
-            return null!;
+                Instituicao = new Instituicao()
+                {
+                    IdInstituicao = u.IdInstituicao,
+                    NomeFantasia = u.Instituicao.NomeFantasia,
+                    Endereco = u.Instituicao.Endereco
+                },
+
+                TipoEvento = new TipoEvento()
+                {
+                    IdTipoEvento = u.TipoEvento.IdTipoEvento,
+                    Titulo = u.TipoEvento.Titulo
+                }
+            }
+            ).FirstOrDefault(u => u.IdEvento == id)!;
+
+            return eventoBuscado;
         }
 
         public void Cadastrar(Evento evento)
         {
             ctx.Evento.Add(evento);
             ctx.SaveChanges();
-           
+
         }
 
         public void Deletar(Guid id)
@@ -63,7 +80,30 @@ namespace WebApiEvent_.Repositories
 
         public List<Evento> Listar()
         {
-            return ctx.Evento.ToList();
+            return ctx.Evento.Select(u => new Evento
+
+            {
+                IdEvento = u.IdEvento,
+                IdTipoEvento = u.IdTipoEvento,
+                DataEvento = u.DataEvento,
+                Descricao = u.Descricao,
+                Nome = u.Nome,
+
+                Instituicao = new Instituicao()
+                {
+                    IdInstituicao = u.IdInstituicao,
+                    NomeFantasia = u.Instituicao.NomeFantasia,
+                    Endereco = u.Instituicao.Endereco
+                },
+
+                TipoEvento = new TipoEvento()
+                {
+                    IdTipoEvento = u.IdTipoEvento,
+                    Titulo = u.TipoEvento.Titulo
+                }
+            }).ToList();
+
+
         }
     }
 }
