@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIHealthClinic.Migrations
 {
     [DbContext(typeof(HealthContext))]
-    [Migration("20230926201905_bd")]
-    partial class bd
+    [Migration("20230927201631_BD")]
+    partial class BD
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,7 +95,8 @@ namespace APIHealthClinic.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Titulo")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("IdEspecialidade");
 

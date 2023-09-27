@@ -92,7 +92,8 @@ namespace APIHealthClinic.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Titulo")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(100)");
 
                     b.HasKey("IdEspecialidade");
 

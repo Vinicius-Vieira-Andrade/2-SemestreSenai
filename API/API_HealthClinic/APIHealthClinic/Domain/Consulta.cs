@@ -38,5 +38,6 @@ namespace APIHealthClinic.Domain
         [Required(ErrorMessage = "O horário é obrigatório!")]
         [Column(TypeName = "TIME")]
         public TimeSpan Horario { get; set; } = new TimeSpan(1);
+
     }
 }
