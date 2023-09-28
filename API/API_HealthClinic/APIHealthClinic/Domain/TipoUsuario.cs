@@ -9,6 +9,7 @@ namespace APIHealthClinic.Domain
         [Key]
         public Guid IdTipoUsuario { get; set; } = Guid.NewGuid();
 
+        [Column(TypeName = "varchar(100)")]
         public string? TituloTipoUsuario { get; set; }
     }
 }

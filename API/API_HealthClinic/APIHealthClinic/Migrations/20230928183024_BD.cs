@@ -17,7 +17,7 @@ namespace APIHealthClinic.Migrations
                 {
                     IdClinica = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Endereco = table.Column<string>(type: "Varchar(300)", nullable: false),
-                    CNPJ = table.Column<int>(type: "INT", maxLength: 14, nullable: false),
+                    CNPJ = table.Column<string>(type: "char(14)", nullable: false),
                     RazaoSocial = table.Column<string>(type: "VARCHAR(100)", nullable: false),
                     NomeFantasia = table.Column<string>(type: "VARCHAR(100)", nullable: false)
                 },
@@ -56,7 +56,7 @@ namespace APIHealthClinic.Migrations
                 columns: table => new
                 {
                     IdTipoUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    TituloTipoUsuario = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    TituloTipoUsuario = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -92,7 +92,7 @@ namespace APIHealthClinic.Migrations
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdEspecialidade = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdClinica = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CRM = table.Column<string>(type: "VARCHAR(40)", nullable: false)
+                    CRM = table.Column<string>(type: "CHAR(13)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,9 +123,9 @@ namespace APIHealthClinic.Migrations
                 {
                     IdPaciente = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdUsuario = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Telefone = table.Column<int>(type: "int", nullable: false),
-                    RG = table.Column<int>(type: "int", nullable: false),
-                    Idade = table.Column<int>(type: "int", nullable: false)
+                    Telefone = table.Column<string>(type: "varchar(12)", nullable: true),
+                    RG = table.Column<string>(type: "varchar(9)", nullable: true),
+                    Idade = table.Column<string>(type: "varchar(3)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -148,7 +148,8 @@ namespace APIHealthClinic.Migrations
                     IdMedico = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Prontuario = table.Column<string>(type: "TEXT", nullable: false),
                     Data = table.Column<DateTime>(type: "DATE", nullable: false),
-                    Horario = table.Column<TimeSpan>(type: "TIME", nullable: false)
+                    HorarioAbertura = table.Column<TimeSpan>(type: "TIME", nullable: false),
+                    HorarioFechamento = table.Column<TimeSpan>(type: "TIME", nullable: false)
                 },
                 constraints: table =>
                 {

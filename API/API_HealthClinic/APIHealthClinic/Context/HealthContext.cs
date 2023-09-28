@@ -21,5 +21,10 @@ namespace APIHealthClinic.Context
             optionsBuilder.UseSqlServer("Server = NOTE12-S14; Database = API_Tarde_HealthClinic; User Id = sa; pwd = Senai@134; TrustServerCertificate = True;");
             base.OnConfiguring(optionsBuilder);
         }
+
+        internal Clinica Find(Guid id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

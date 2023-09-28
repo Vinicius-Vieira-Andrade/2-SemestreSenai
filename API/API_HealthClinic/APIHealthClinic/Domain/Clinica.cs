@@ -14,10 +14,8 @@ namespace APIHealthClinic.Domain
         public string? Endereco { get; set; }
 
         [Required(ErrorMessage = "O CNPJ é obrigatório")]
-        [Column(TypeName = "INT")]
-        [MinLength(14, ErrorMessage = "O CNPJ aceita no minimo 14 caracteres!")]
-        [MaxLength(14, ErrorMessage = "O CNPJ aceita no máximo 14 caracteres!")]
-        public int CNPJ { get; set; }
+        [Column(TypeName = "char(14)")]
+        public string? CNPJ { get; set; }
 
         [Required(ErrorMessage = "A razão social é obrigatória!")]
         [Column(TypeName = "VARCHAR(100)")]

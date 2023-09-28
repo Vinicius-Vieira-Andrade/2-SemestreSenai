@@ -37,7 +37,15 @@ namespace APIHealthClinic.Domain
 
         [Required(ErrorMessage = "O horário é obrigatório!")]
         [Column(TypeName = "TIME")]
-        public TimeSpan Horario { get; set; } = new TimeSpan(1);
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"hh\:mm")]
+        public TimeSpan HorarioAbertura { get; set; }
+
+        [Required(ErrorMessage = "O horário é obrigatório!")]
+        [Column(TypeName = "TIME")]
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = @"hh\:mm")]
+        public TimeSpan HorarioFechamento { get; set; }
 
     }
 }

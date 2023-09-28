@@ -17,11 +17,13 @@ namespace APIHealthClinic.Domain
         [ForeignKey(nameof(IdUsuario))]  
         public Usuario? Usuario { get; set; }
 
+        [Column(TypeName = "varchar(12)")]
+        public string? Telefone { get; set; }
 
-        public int Telefone { get; set; }
+        [Column(TypeName = "varchar(9)")]
+        public string? RG { get; set; }
 
-        public int RG { get; set; }
-
-        public int Idade { get; set; }
+        [Column(TypeName = "varchar(3)")]
+        public string? Idade { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace APIHealthClinic.Domain
 
 
         [Required(ErrorMessage = "O número do CRM é obrigatório!")]
-        [Column(TypeName = "VARCHAR(40)")]
+        [Column(TypeName = "CHAR(13)")]
         public string? CRM { get; set; }
     }
 }

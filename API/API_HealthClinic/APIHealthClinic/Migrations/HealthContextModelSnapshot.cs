@@ -28,9 +28,9 @@ namespace APIHealthClinic.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CNPJ")
-                        .HasMaxLength(14)
-                        .HasColumnType("INT");
+                    b.Property<string>("CNPJ")
+                        .IsRequired()
+                        .HasColumnType("char(14)");
 
                     b.Property<string>("Endereco")
                         .IsRequired()
@@ -58,7 +58,10 @@ namespace APIHealthClinic.Migrations
                     b.Property<DateTime>("Data")
                         .HasColumnType("DATE");
 
-                    b.Property<TimeSpan>("Horario")
+                    b.Property<TimeSpan>("HorarioAbertura")
+                        .HasColumnType("TIME");
+
+                    b.Property<TimeSpan>("HorarioFechamento")
                         .HasColumnType("TIME");
 
                     b.Property<Guid>("IdFeedback")
@@ -126,7 +129,7 @@ namespace APIHealthClinic.Migrations
 
                     b.Property<string>("CRM")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(40)");
+                        .HasColumnType("CHAR(13)");
 
                     b.Property<Guid>("IdClinica")
                         .HasColumnType("uniqueidentifier");
@@ -157,14 +160,14 @@ namespace APIHealthClinic.Migrations
                     b.Property<Guid>("IdUsuario")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Idade")
-                        .HasColumnType("int");
+                    b.Property<string>("Idade")
+                        .HasColumnType("varchar(3)");
 
-                    b.Property<int>("RG")
-                        .HasColumnType("int");
+                    b.Property<string>("RG")
+                        .HasColumnType("varchar(9)");
 
-                    b.Property<int>("Telefone")
-                        .HasColumnType("int");
+                    b.Property<string>("Telefone")
+                        .HasColumnType("varchar(12)");
 
                     b.HasKey("IdPaciente");
 
@@ -180,7 +183,7 @@ namespace APIHealthClinic.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("TituloTipoUsuario")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("IdTipoUsuario");
 
