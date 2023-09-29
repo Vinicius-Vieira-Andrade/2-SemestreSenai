@@ -2,6 +2,7 @@
 using APIHealthClinic.Domain;
 using APIHealthClinic.Interface;
 using Microsoft.AspNetCore.Http.HttpResults;
+using System.Xml.Linq;
 
 namespace APIHealthClinic.Repository
 {
@@ -24,9 +25,9 @@ namespace APIHealthClinic.Repository
 
         }
 
-        public void Deletar(Feedback coment)
+        public void Deletar(Guid id)
         {
-            Feedback feedbackBuscado = ctx.Feedback.Find(coment)!;
+            Feedback feedbackBuscado = ctx.Feedback.Find(id)!;
             if (feedbackBuscado != null)
             {
                 ctx.Feedback.Remove(feedbackBuscado);

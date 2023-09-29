@@ -6,6 +6,6 @@ namespace APIHealthClinic.Interface
     {
         void Cadastrar(Feedback coment);
 
-        void Deletar(Feedback coment);
+        void Deletar(Guid id);
     }
 }
