@@ -4,7 +4,7 @@ using APIHealthClinic.Interface;
 
 namespace APIHealthClinic.Repository
 {
-    public class MedicoRepository : IMedico
+    public class MedicoRepository : IMedicoRepository
     {
 
         private readonly HealthContext ctx;

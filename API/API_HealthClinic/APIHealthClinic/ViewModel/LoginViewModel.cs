@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApiEvent_.ViewModels
+namespace APIHealthClinic.ViewModel
 {
     public class LoginViewModel
     {

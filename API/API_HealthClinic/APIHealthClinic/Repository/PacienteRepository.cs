@@ -4,7 +4,7 @@ using APIHealthClinic.Interface;
 
 namespace APIHealthClinic.Repository
 {
-    public class PacienteRepository : IPaciente
+    public class PacienteRepository : IPacienteRepository
     {
         private readonly HealthContext ctx;
 

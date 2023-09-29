@@ -1,0 +1,24 @@
+exemplo objeto clinica
+{
+  "endereco": "rua seis de novembro",
+  "cnpj": "12345678910121",
+  "razaoSocial": "neymar",
+  "nomeFantasia": "abudalah",
+  "horarioAbertura": "10:00",
+  "horarioFechamento": "16:30"
+}
+
+exemplo objeto usuario
+{
+  "email": "paciente@paciente.com",
+  "senha": "123456",
+  "nome": "matheus",
+  "idTipoUsuario": "CF2CAB16-0B2F-4662-B245-D9BA61D44F66"
+}
+
+exemplo objeto buscar email e senh no login
+{
+  "email": "admin@admin.com",
+  "senha": "123456"
+}
+

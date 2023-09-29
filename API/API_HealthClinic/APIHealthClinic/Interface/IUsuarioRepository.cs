@@ -2,9 +2,9 @@
 
 namespace APIHealthClinic.Interface
 {
-    public interface IUsuario
+    public interface IUsuarioRepository
     {
-        Usuario Logar(string email, string senha);
+        Usuario BuscarEmailSenha(string email, string senha);
 
         void CadastrarUsuario(Usuario usuario);
     }

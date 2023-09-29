@@ -2,7 +2,7 @@
 
 namespace APIHealthClinic.Interface
 {
-    public interface IClinica
+    public interface IClinicaRepository
     {
         void CadastrarClinica(Clinica clinica);
 

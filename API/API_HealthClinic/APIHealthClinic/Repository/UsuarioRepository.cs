@@ -5,7 +5,7 @@ using APIHealthClinic.Utils;
 
 namespace APIHealthClinic.Repository
 {
-    public class UsuarioRepository : IUsuario
+    public class UsuarioRepository : IUsuarioRepository
     {
         private readonly HealthContext ctx;
 
@@ -31,7 +31,7 @@ namespace APIHealthClinic.Repository
             }
         }
 
-        Usuario IUsuario.Logar(string email, string senha)
+        public Usuario BuscarEmailSenha(string email, string senha)
         {
             try
             {

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIHealthClinic.Migrations
 {
     [DbContext(typeof(HealthContext))]
-    [Migration("20230929171355_BancoDados")]
+    [Migration("20230929172524_BancoDados")]
     partial class BancoDados
     {
         /// <inheritdoc />

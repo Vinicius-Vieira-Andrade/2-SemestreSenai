@@ -1,14 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using APIHealthClinic.Domain;
+using APIHealthClinic.Interface;
+using APIHealthClinic.Repository;
+using APIHealthClinic.ViewModel;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using WebApiEvent_.Domains;
-using WebApiEvent_.Interfaces;
-using WebApiEvent_.Repositories;
-using WebApiEvent_.ViewModels;
 
-namespace WebApiEvent_.Controllers
+namespace APIHealthClinic.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -24,11 +24,11 @@ namespace WebApiEvent_.Controllers
 
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel user)
+        public IActionResult BuscarEmailSenha(LoginViewModel user)
         {
             try
             {
-                Usuario usuarioBuscado = _usuarioRepository.BuscarPorEmailESenha(user.Email!, user.Senha!);
+                Usuario usuarioBuscado = _usuarioRepository.BuscarEmailSenha(user.Email!, user.Senha!);
 
                 if (usuarioBuscado == null)
                 {
@@ -37,7 +37,7 @@ namespace WebApiEvent_.Controllers
 
 
                 var claims = new[]
-                {    
+                {
                     new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome!),
                     new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Email, usuarioBuscado.Email!),
@@ -46,16 +46,16 @@ namespace WebApiEvent_.Controllers
 
 
 
-                var Key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("aaaaaaaaaaaaa-maior-autenticacao-tarde-eventplus-key-webapi"));
+                var Key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("aaaaaaaaaaaaa-maior-autenticacao-tarde-healthclinic-key-webapi"));
 
 
                 var creds = new SigningCredentials(Key, SecurityAlgorithms.HmacSha256);
 
                 var token = new JwtSecurityToken
                 (
-                    issuer: "webapi-event",
+                    issuer: "webapi-healthclinic",
 
-                    audience: "webapi-event",
+                    audience: "webapi-healthclinic",
 
                     claims: claims,
 

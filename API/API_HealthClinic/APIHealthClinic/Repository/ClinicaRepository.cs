@@ -4,7 +4,7 @@ using APIHealthClinic.Interface;
 
 namespace APIHealthClinic.Repository
 {
-    public class ClinicaRepository : IClinica
+    public class ClinicaRepository : IClinicaRepository
     {
         private readonly HealthContext ctx;
 
@@ -21,7 +21,7 @@ namespace APIHealthClinic.Repository
 
         public void RemoverClinica(Guid id)
         {
-            Clinica clinicaBuscada = ctx.Find(id);
+            Clinica clinicaBuscada = ctx.Clinica.FirstOrDefault(c => c.IdClinica == id)!;
 
             if (clinicaBuscada != null)
             {

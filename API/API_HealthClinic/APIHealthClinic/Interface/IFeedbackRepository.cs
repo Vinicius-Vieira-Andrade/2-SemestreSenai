@@ -2,7 +2,7 @@
 
 namespace APIHealthClinic.Interface
 {
-    public interface IFeedback
+    public interface IFeedbackRepository
     {
         void Cadastrar(Feedback coment);
 

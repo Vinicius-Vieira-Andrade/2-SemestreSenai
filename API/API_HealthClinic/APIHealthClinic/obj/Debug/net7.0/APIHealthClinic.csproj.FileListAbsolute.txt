@@ -80,3 +80,5 @@ C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\APIHealthClini
 C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\APIHealthClinic\obj\Debug\net7.0\APIHealthClinic.pdb
 C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\APIHealthClinic\obj\Debug\net7.0\APIHealthClinic.genruntimeconfig.cache
 C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\APIHealthClinic\obj\Debug\net7.0\ref\APIHealthClinic.dll
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\APIHealthClinic\bin\Debug\net7.0\APIHealthClinic.xml
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\APIHealthClinic\obj\Debug\net7.0\APIHealthClinic.xml

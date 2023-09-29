@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace APIHealthClinic.Repository
 {
-    public class FeedbackRepository : IFeedback
+    public class FeedbackRepository : IFeedbackRepository
     {
         private readonly HealthContext ctx;
 

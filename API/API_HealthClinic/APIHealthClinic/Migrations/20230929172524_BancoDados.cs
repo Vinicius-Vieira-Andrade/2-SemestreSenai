@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace APIHealthClinic.Migrations
 {
     /// <inheritdoc />
-    public partial class BD : Migration
+    public partial class BancoDados : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,7 +19,9 @@ namespace APIHealthClinic.Migrations
                     Endereco = table.Column<string>(type: "Varchar(300)", nullable: false),
                     CNPJ = table.Column<string>(type: "char(14)", nullable: false),
                     RazaoSocial = table.Column<string>(type: "VARCHAR(100)", nullable: false),
-                    NomeFantasia = table.Column<string>(type: "VARCHAR(100)", nullable: false)
+                    NomeFantasia = table.Column<string>(type: "VARCHAR(100)", nullable: false),
+                    HorarioAbertura = table.Column<TimeSpan>(type: "TIME", nullable: false),
+                    HorarioFechamento = table.Column<TimeSpan>(type: "TIME", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -147,9 +149,7 @@ namespace APIHealthClinic.Migrations
                     IdFeedback = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     IdMedico = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Prontuario = table.Column<string>(type: "TEXT", nullable: false),
-                    Data = table.Column<DateTime>(type: "DATE", nullable: false),
-                    HorarioAbertura = table.Column<TimeSpan>(type: "TIME", nullable: false),
-                    HorarioFechamento = table.Column<TimeSpan>(type: "TIME", nullable: false)
+                    Data = table.Column<DateTime>(type: "DATE", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -2,7 +2,7 @@
 
 namespace APIHealthClinic.Interface
 {
-    public interface IConsulta
+    public interface IConsultaRepository
     {
         List<Consulta> ListarConsultas();
         void AgendarConsulta(Consulta consulta);
