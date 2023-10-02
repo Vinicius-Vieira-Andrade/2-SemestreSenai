@@ -22,3 +22,19 @@ exemplo objeto buscar email e senh no login
   "senha": "123456"
 }
 
+exemplo objeto  cadastrar medico
+{
+  "idUsuario": "47832290-6319-4E61-BA56-25C9E9DB1CCC",
+    "idTipoUsuario": "E02BE1F0-DEFE-4958-BD5B-157072338710",
+  "idEspecialidade": "CD431B99-7B12-4CC5-8658-537694CF9B3A",
+  "idClinica": "07CD59A6-CE38-4281-AEE6-48376FB06004",
+  "crm": "CRM/SP 654321"
+}
+
+EXEMPLO objeto paciente 
+{
+  "idUsuario": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "telefone": "string",
+  "rg": "string",
+  "idade": "string"
+}

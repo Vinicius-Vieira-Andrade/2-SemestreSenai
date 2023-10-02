@@ -22,49 +22,50 @@ namespace APIHealthClinic.Repository
             {
                 medicoBuscado.CRM = medico.CRM;
                 medicoBuscado.IdClinica = medico.IdClinica;
-                medicoBuscado.Usuario!.Nome = medico.Usuario!.Nome;
             }
 
             ctx.Medico.Update(medicoBuscado!);
             ctx.SaveChanges();
         }
 
-        public List<Medico> BuscarEspecialidade(Especialidade especialidade)
-        {
-             List<Medico> medicosBuscado = ctx.Medico.Where(e => e.Especialidade.Titulo == especialidade.Titulo).ToList();
-
-            return medicosBuscado;
-        }
-
         public Medico BuscarId(Guid id)
         {
-            Medico medicoBuscado = ctx.Medico.Select(m => new Medico
-            {
-                IdMedico = m.IdMedico,
-                CRM = m.CRM,
+            Medico medicoBuscado = ctx.Medico.Find(id)!;
+            if (medicoBuscado != null)
+            { 
+                return ctx.Medico
+                .Select(m => new Medico
+                 {
+                     IdMedico = m.IdMedico,
+                     CRM = m.CRM,
 
-                Especialidade = new Especialidade()
-                {
-                    IdEspecialidade = m.IdEspecialidade,
-                    Titulo = m.Especialidade.Titulo
-                },
+                     Especialidade = new Especialidade()
+                     {
+                         IdEspecialidade = m.IdEspecialidade,
+                         Titulo = m.Especialidade.Titulo
+                     },
 
-                Clinica = new Clinica()
-                {
-                    IdClinica = m.IdClinica,
-                    CNPJ = m.Clinica.CNPJ,
-                    Endereco = m.Clinica.Endereco,
-                    NomeFantasia = m.Clinica.NomeFantasia,
-                    RazaoSocial = m.Clinica.RazaoSocial
-                },
+                     Usuario = new Usuario()
+                     {
+                         IdUsuario = m.IdUsuario,
+                         Nome = m.Usuario.Nome,
+                         Email = m.Usuario.Email,
+                         IdTipoUsuario = m.Usuario.IdTipoUsuario
 
-                Usuario = new Usuario()
-                {
-                    IdUsuario = m.IdUsuario,
-                    Nome = m.Usuario.Nome
-                }
-            }
+                     },
+
+                     Clinica = new Clinica()
+                     {
+                         IdClinica= m.IdClinica,
+                         NomeFantasia = m.Clinica.NomeFantasia
+                     }
+
+
+                     
+                 }
             ).FirstOrDefault(m => m.IdMedico == id)!;
+
+            }
 
             return medicoBuscado;
         }
@@ -75,9 +76,9 @@ namespace APIHealthClinic.Repository
             ctx.SaveChanges();
         }
 
-        public List<Consulta> ListarConsulta(Guid id)
+        public List<Consulta> ListarConsulta(string Nome)
         {
-            return ctx.Consulta.Where(c => c.IdMedico == id).ToList();
+            return ctx.Consulta.Where(c => c.Medico.Usuario.Nome == Nome).ToList();
         }
 
         public List<Medico> ListarMedicos()
@@ -93,7 +94,6 @@ namespace APIHealthClinic.Repository
             {
                 ctx.Medico.Remove(medicoBuscado);
             }
-
             ctx.SaveChanges();
         }
     }

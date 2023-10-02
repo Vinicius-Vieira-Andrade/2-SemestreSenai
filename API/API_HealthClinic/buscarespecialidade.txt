@@ -1,0 +1,20 @@
+ List<Medico> BuscarEspecialidade(Especialidade especialidade);
+        /*
+         Ususario usuarioBiscado = ctx.Usuario
+        .ToList()
+        .Where(e => e.Titulo == especialidade.Titulo);
+         */
+
+
+
+
+
+
+
+
+        public List<Medico> BuscarEspecialidade(Especialidade especialidade)
+        {
+             List<Medico> medicosBuscado = ctx.Medico.Where(e => e.Especialidade.Titulo == especialidade.Titulo).ToList();
+
+            return medicosBuscado;
+        }

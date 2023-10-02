@@ -9,9 +9,8 @@ namespace APIHealthClinic.Domain
         [Key]
         public Guid IdPaciente { get; set; } = Guid.NewGuid();
 
+
         [Required(ErrorMessage = "O usuario é obrigatório!")]
-
-
         public Guid IdUsuario { get; set; }
 
         [ForeignKey(nameof(IdUsuario))]  

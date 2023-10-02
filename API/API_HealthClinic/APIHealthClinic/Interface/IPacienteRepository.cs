@@ -14,6 +14,6 @@ namespace APIHealthClinic.Interface
 
         void AtualizarPaciente(Guid id, Paciente paciente);
 
-        List<Consulta> ListarConsulta(Guid id);
+        List<Consulta> ListarConsulta(string Nome);
     }
 }

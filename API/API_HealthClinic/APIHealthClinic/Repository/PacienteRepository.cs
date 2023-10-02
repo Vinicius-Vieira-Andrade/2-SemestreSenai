@@ -56,9 +56,9 @@ namespace APIHealthClinic.Repository
             ctx.SaveChanges();
         }
 
-        public List<Consulta> ListarConsulta(Guid id)
+        public List<Consulta> ListarConsulta(string Nome)
         {
-            return ctx.Consulta.Where(c => c.IdPaciente == id).ToList();
+            return ctx.Consulta.Where(c => c.Paciente.Usuario.Nome == Nome).ToList();
         }
 
         public List<Paciente> ListarPaciente()
