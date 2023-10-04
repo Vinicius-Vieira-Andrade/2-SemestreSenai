@@ -35,7 +35,7 @@ namespace APIHealthClinic.Repository
             ctx.SaveChanges();
         }
 
-        public void BuscarConsultaId(Guid id)
+        public Consulta BuscarConsultaId(Guid id)
         {
             Consulta buscarConsulta = ctx.Consulta.Select(c => new Consulta
             {
@@ -57,15 +57,11 @@ namespace APIHealthClinic.Repository
 
                 Paciente = new Paciente()
                 {
-                    IdPaciente = c.IdPaciente,
-                    RG = c.Paciente.RG,
-                    Telefone = c.Paciente.Telefone,
-                    Idade = c.Paciente.Idade,
+                    IdPaciente = c.IdPaciente
                 }
             }
             ).FirstOrDefault(m => m.IdConsulta == id)!;
-
-
+            return buscarConsulta;
         }
 
         public void CancelarConsulta(Guid id)
@@ -77,6 +73,19 @@ namespace APIHealthClinic.Repository
                 ctx.Consulta.Remove(buscarConsulta);
             }
 
+            ctx.SaveChanges();
+        }
+
+        public void FazerComentario(Guid id ,Feedback comentario)
+        {
+            Consulta consultaBuscada = ctx.Consulta.FirstOrDefault(c => c.IdConsulta == id)!;
+            if (consultaBuscada != null)
+            {
+                ctx.Feedback.Add(comentario);
+
+                consultaBuscada.IdFeedback = comentario.IdFeedback;
+                ctx.Update(consultaBuscada);
+            }
             ctx.SaveChanges();
         }
 

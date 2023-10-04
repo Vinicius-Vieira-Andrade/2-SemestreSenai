@@ -8,8 +8,7 @@ namespace APIHealthClinic.Interface
         void AgendarConsulta(Consulta consulta);
         void CancelarConsulta(Guid id);
         void AtualizarConsulta(Guid id, Consulta consulta);
-        void BuscarConsultaId(Guid id);
-
-        
+        Consulta BuscarConsultaId(Guid id);
+        void FazerComentario(Guid id, Feedback comentario);
     }
 }

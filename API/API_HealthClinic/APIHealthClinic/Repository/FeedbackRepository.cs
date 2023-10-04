@@ -34,5 +34,10 @@ namespace APIHealthClinic.Repository
             }
             ctx.SaveChanges();
         }
+
+        public List<Feedback> ListarFeedback()
+        {
+            return ctx.Feedback.ToList();
+        }
     }
 }

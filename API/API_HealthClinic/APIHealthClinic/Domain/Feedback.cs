@@ -15,5 +15,6 @@ namespace APIHealthClinic.Domain
 
         [Column(TypeName = "BIT")]
         public bool ExibeFeedback { get; set; }
+
     }
 }

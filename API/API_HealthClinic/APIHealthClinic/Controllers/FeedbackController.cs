@@ -18,6 +18,20 @@ namespace APIHealthClinic.Controllers
             _feedbackRepository = new FeedbackRepository();
         }
 
+        [HttpGet("Get")]
+        public IActionResult GetFeedBack()
+        {
+            try
+            {
+                return Ok(_feedbackRepository.ListarFeedback());
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro.Message);
+            }
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {

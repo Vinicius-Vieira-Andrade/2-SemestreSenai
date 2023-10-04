@@ -38,3 +38,23 @@ EXEMPLO objeto paciente
   "rg": "string",
   "idade": "string"
 }
+
+
+exemplo objeto consulta cadastra
+{
+  "idPaciente": "393CCEA9-8BCE-40C0-955A-F42EB4CED725",
+  "idFeedback": "ECD72A64-E76A-49AE-899E-5A6949890FC2",
+  "idMedico": "9E665FC7-7E6D-4717-B8C6-0B7D8AD54E2A",
+  "prontuario": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "data": "2023-10-04T17:59:46.011Z"
+}
+
+
+Exemplo objeto consulta atualizar
+{
+  "idPaciente": "393CCEA9-8BCE-40C0-955A-F42EB4CED725",
+  "idFeedback": "ECD72A64-E76A-49AE-899E-5A6949890FC2",
+  "idMedico": "9E665FC7-7E6D-4717-B8C6-0B7D8AD54E2A",
+  "prontuario": "o lepo lepo lepo",
+  "data": "2023-10-06T18:14:31.002Z"
+}

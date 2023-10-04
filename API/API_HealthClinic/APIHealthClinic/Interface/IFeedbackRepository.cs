@@ -7,5 +7,8 @@ namespace APIHealthClinic.Interface
         void Cadastrar(Feedback coment);
 
         void Deletar(Guid id);
+
+        List<Feedback> ListarFeedback();
+
     }
 }
