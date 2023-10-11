@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipos de dados</title>
+</head>
+
+<body>
+    <form onsubmit="ExibiNickname()">
+        <label for="Nome">Nome</label>
+        <input type="text" placeholder="Nome: " id="Nome">
+        <br><br>
+
+        <label for="Nickname">Nickname</label>
+        <input type="text" placeholder="Nickname: " id="Nickname">
+        <br><br>
+
+        <strong id="resultado">...</strong>
+        <br><br>
+
+        <button>Run</button>
+    </form>
+
+
+
+    <script>
+        function ExibiNickname() {
+            event.preventDefault();
+            let nome = document.getElementById("Nome").value
+            let nickname = document.getElementById("Nickname").value
+            
+            document.getElementById("resultado").innerText = `Olá, ${nome.replace(nome, nickname)}`;//resultado aparece na propria pagina
+            alert(`Olá, ${nome.replace(nome, nickname)}`); //da tela de alert
+        }
+
+
+
+
+        //  0123456
+        //  let nome = '  Vinicius Vieira de Andrade Correia';
+        // console.log(nome);
+        // console.log(nome[2]);
+        // console.log(nome.toUpperCase());
+        // console.log(nome.toLowerCase());
+        // let nomeLimpo = nome.trim();
+        // console.log(nome.trim());
+        // console.log(nomeLimpo.length);
+
+        // console.log(nome.substring(6, 9))
+        // console.log(nome.substr(6, 3))   //ele pega de uma posicao (1, 2) e fala quanas casar ele quer apartir desse numero de origem bem melhor que o substring 
+
+        //  console.log(nome.replace("Vieira", "Andrade"));
+    </script>
+</body>
+
+</html>
