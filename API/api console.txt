@@ -1,0 +1,5 @@
+dotnet build > Builda a aplicação
+
+Add-Migration BD > Cria o banco de dados
+
+Update-Database > Implementa o banco no ssms
