@@ -14,11 +14,11 @@ function calcular() {
 
 
     const imc = calcularImc(altura, peso);
-    const situation = gerarSituacao(imc)
+    const situation = gerarSituacao(imc);
 
 
     //objeto gerado
-    const Pessoa = { nome: nome, altura: altura, peso: peso, imc: imc, situacao: situation };
+    const Pessoa = { nome, altura, peso, imc, situacao: situation };
 
     console.log(Pessoa);
     console.log(altura);
@@ -59,6 +59,56 @@ function calcular() {
         return situacao
 
     }
+
+
+    const arrayPessoa = [];
+    arrayPessoa.push(Pessoa) //guardo o objeto pessoas na lista
+
+    const tableCorpo = document.getElementById("cadastro") //
+
+
+    arrayPessoa.forEach((p) => {
+        //linhas da tabela
+        let linha = tableCorpo.insertRow();
+
+        //células a ser preenchidas
+        let tdNome = linha.insertCell();
+        let tdAltura = linha.insertCell();
+        let tdPeso = linha.insertCell();
+        let tdImc = linha.insertCell();
+        let tdSituacao = linha.insertCell();
+
+        //valor que a célula vai receber
+        tdNome.innerText = p.nome;
+        tdAltura.innerText = p.altura;
+        tdPeso.innerText = p.peso;
+        tdImc.innerText = p.imc;
+        tdSituacao.innerText = p.situacao;
+    });
+
+
+
+
+
+    // for (let index = 0; index < arrayPessoa.length; index++) {
+    //     let linha = tableCorpo.insertRow();
+
+
+
+    //     let tdNome = linha.insertCell();
+    //     let tdAltura = linha.insertCell();
+    //     let tdPeso = linha.insertCell();
+    //     let tdImc = linha.insertCell();
+    //     let tdSituacao = linha.insertCell();
+
+    //     tdNome.innerText = arrayPessoa[index].nome;
+    //     tdAltura.innerText = arrayPessoa[index].altura;
+    //     tdPeso.innerText = arrayPessoa[index].peso;
+    //     tdImc.innerText = arrayPessoa[index].imc;
+    //     tdSituacao.innerText = arrayPessoa[index].situacao;
+
+    // }
+
 }
 
 

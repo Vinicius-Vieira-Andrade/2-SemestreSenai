@@ -68,6 +68,7 @@ form input:focus {
 
 form input:focus::placeholder { color: rgba(7, 173, 137, 0.7); }
 
+
 form button {
     width: 25%;
     height: 35px;
@@ -82,7 +83,10 @@ form button {
     border-radius: 50px;
     margin: 15px;
     outline: none;
+    cursor: pointer;
 }
+
+form button:hover { background-color: aquamarine; transition: all 0.24s;}
 
 form button[type="button"] { margin-right: 10px; }
 
