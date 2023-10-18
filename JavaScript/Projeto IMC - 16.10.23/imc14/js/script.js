@@ -1,11 +1,10 @@
-function calcular() {
-    event.preventDefault()
+function calcular(e) {
+    e.preventDefault()
 
 
     let nome = document.getElementById("nome").value.trim()
-    let altura = parseFloat(document.getElementById("altura").value)
+    let altura = parseFloat(document.getElementById("altura").value) //NaN
     let peso = parseFloat(document.getElementById("peso").value)
-    let situacao;
 
     if (isNaN(altura) || isNaN(peso) || nome == "") {
         alert("É necessário preencher todos os campos!")
@@ -26,10 +25,13 @@ function calcular() {
     console.log(imc);
     console.log(situation);
 
+    //LÓGICA DO CALCULO DO IMC
     function calcularImc(altura, peso) {
         return (peso / Math.pow(altura, 2)).toFixed(2)
     }
 
+
+    //GERA A SITUATIONS:D
     function gerarSituacao(imc) {
 
         if (imc < 18.5) {
@@ -60,37 +62,43 @@ function calcular() {
 
     }
 
+    limpaForm();
+    exibePessoas();
 
-    const arrayPessoa = [];
-    arrayPessoa.push(Pessoa) //guardo o objeto pessoas na lista
+    //LIMPA FORM
+    function limpaForm() {
+        document.getElementById("nome").value = "";
+        document.getElementById("altura").value = "";
+        document.getElementById("peso").value = "";
+    }
 
-    const tableCorpo = document.getElementById("cadastro") //
+    //EXIBE NA TABELA
+    function exibePessoas() {
+        const arrayPessoa = [];
+        arrayPessoa.push(Pessoa) //guardo o objeto pessoas na lista
+
+        const tableCorpo = document.getElementById("cadastro") //
+
+        arrayPessoa.forEach((p) => {
+            //linhas da tabela
+            let linha = tableCorpo.insertRow();
+
+            //células a ser preenchidas
+            let tdNome = linha.insertCell();
+            let tdAltura = linha.insertCell();
+            let tdPeso = linha.insertCell();
+            let tdImc = linha.insertCell();
+            let tdSituacao = linha.insertCell();
+
+            //valor que a célula vai receber
+            tdNome.innerText = p.nome;
+            tdAltura.innerText = p.altura;
+            tdPeso.innerText = p.peso;
+            tdImc.innerText = p.imc;
+            tdSituacao.innerText = p.situacao;
 
 
-    arrayPessoa.forEach((p) => {
-        //linhas da tabela
-        let linha = tableCorpo.insertRow();
-
-        //células a ser preenchidas
-        let tdNome = linha.insertCell();
-        let tdAltura = linha.insertCell();
-        let tdPeso = linha.insertCell();
-        let tdImc = linha.insertCell();
-        let tdSituacao = linha.insertCell();
-
-        //valor que a célula vai receber
-        tdNome.innerText = p.nome;
-        tdAltura.innerText = p.altura;
-        tdPeso.innerText = p.peso;
-        tdImc.innerText = p.imc;
-        tdSituacao.innerText = p.situacao;
-    });
-
-
-
-
-
-    // for (let index = 0; index < arrayPessoa.length; index++) {
+                // for (let index = 0; index < arrayPessoa.length; index++) {
     //     let linha = tableCorpo.insertRow();
 
 
@@ -108,7 +116,8 @@ function calcular() {
     //     tdSituacao.innerText = arrayPessoa[index].situacao;
 
     // }
-
+        });
+    }
 }
 
 
