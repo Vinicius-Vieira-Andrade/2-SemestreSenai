@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+
+<body>
+    <form onsubmit="(chamarApi())">
+        <label for="cep">CEP</label>
+        <input type="number" id="cep" placeholder="Digite seu CEP: ">
+        <button>Chamar api</button>
+        <p id="exibe"></p>
+    </form>
+
+
+
+
+    <script>
+        async function chamarApi() {
+            event.preventDefault();
+            try { //RESOLVIDADE OU FULLFILED
+                const input = document.getElementById("cep").value //digitar o cep que vc deseja 
+                const promise = await fetch(`https://viacep.com.br/ws/${input}/json/`) //chama api recebendo o dado(cep) do usuario e processando
+                const endereco = await promise.json(); //extrai os dados do corpo do json, os dados de endereço
+
+                console.log(endereco); //mostra os dados do endereço
+            } catch (error) { //REJEITADA OU REJECTED
+                console.log("Deu ruim na API");
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+
+<body>
+    <form>
+        <label for="cep">CEP</label>
+        <input
+          type="number"
+          placeholder="digite o cep"
+          id="cep"
+          onblur="chamarApi()"
+        />
+        <br /><br />
+  
+        <label for="endereco">Endereço</label>
+        <input type="text" placeholder=" ... " id="endereco" />
+        <br /><br />
+  
+        <label for="bairro">Bairro</label>
+        <input type="text" placeholder=" ... " id="bairro" />
+        <br /><br />
+  
+        <label for="cidade">Cidade</label>
+        <input type="text" placeholder=" ... " id="cidade" />
+        <br /><br />
+  
+        <label for="estado">Estado</label>
+        <input type="text" placeholder=" ... " id="estado" />
+        <br /><br />
+      </form>
+
+
+
+
+    <script>
+        async function chamarApi() {
+            try { //RESOLVIDADE OU FULLFILED
+                const input = document.getElementById("cep").value //digitar o cep que vc deseja 
+                const promise = await fetch(`https://viacep.com.br/ws/${input}/json/`) //chama api recebendo o dado(cep) do usuario e processando
+                const dados = await promise.json(); //extrai os dados do corpo do json, os dados de endereço
+
+                // const {enderecoo, bairro, ...resto} = dados
+
+                document.getElementById("endereco").value = dados.logradouro;
+                document.getElementById("cidade").value = dados.localidade;
+                document.getElementById("bairro").value = dados.bairro;
+                document.getElementById("estado").value = dados.uf;
+
+
+                // console.log(endereco); //mostra os dados do endereço
+
+
+            } catch (error) { //REJEITADA OU REJECTED
+                console.log("Deu ruim na API");
+            }
+
+        }
+    </script>
+</body>
+
+</html>
