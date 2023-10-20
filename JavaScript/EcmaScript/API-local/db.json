@@ -1,0 +1,31 @@
+{
+  "imc": [
+    {
+      "id": 1,
+      "Nome": "Vinicius",
+      "Idade": 20,
+      "Altura": 1.71,
+      "Peso": 57,
+      "Imc": 19.9,
+      "Situacao": "Desnutrido"
+    },
+    {
+      "Nome": "Kuririn",
+      "Idade": 28,
+      "Altura": 1.4,
+      "Peso": 60,
+      "Imc": 10.9,
+      "Situacao": "anao",
+      "id": 5
+    },
+    {
+      "Nome": "Goku",
+      "Idade": 30,
+      "Altura": 1.45,
+      "Peso": 85,
+      "Imc": 20.9,
+      "Situacao": "BodyBuilder",
+      "id": 6
+    }
+  ]
+}
