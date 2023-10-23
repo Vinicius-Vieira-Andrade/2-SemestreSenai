@@ -1,31 +1,26 @@
 {
-  "imc": [
+  "contatos": [
     {
-      "id": 1,
-      "Nome": "Vinicius",
-      "Idade": 20,
-      "Altura": 1.71,
-      "Peso": 57,
-      "Imc": 19.9,
-      "Situacao": "Desnutrido"
+      "nome": "matheus",
+      "cep": "03375000",
+      "numerocasa": "65",
+      "telefone": "19564564",
+      "endereco": "Rua Hemisfério",
+      "bairro": "Chácara Belenzinho",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "id": 3
     },
     {
-      "Nome": "Kuririn",
-      "Idade": 28,
-      "Altura": 1.4,
-      "Peso": 60,
-      "Imc": 10.9,
-      "Situacao": "anao",
-      "id": 5
-    },
-    {
-      "Nome": "Goku",
-      "Idade": 30,
-      "Altura": 1.45,
-      "Peso": 85,
-      "Imc": 20.9,
-      "Situacao": "BodyBuilder",
-      "id": 6
+      "nome": "Vinicius",
+      "cep": "02857070",
+      "numerocasa": "54",
+      "telefone": "11960741382",
+      "endereco": "Rua Seis de Novembro",
+      "bairro": "Jardim Brasília (Zona Norte)",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "id": 4
     }
   ]
 }

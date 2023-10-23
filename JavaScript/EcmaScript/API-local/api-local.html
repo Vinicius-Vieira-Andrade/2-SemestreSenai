@@ -9,7 +9,16 @@
 </head>
 
 <body>
-    <form>
+    <form onsubmit="cadastrar(event)">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" placeholder="digite o seu nome:">
+        <br><br>
+        <label for="telefone">Telefone</label>
+        <input type="text" id="telefone" placeholder="digite o seu telefone:">
+        <br><br>
+        <label for="numerocasa">Nº</label>
+        <input type="number" id="numerocasa" placeholder="numero da sua casa:">
+        <br><br>
         <label for="cep">CEP</label>
         <input type="number" placeholder="digite o cep" id="cep" onblur="chamarApi()" autocomplete="off" />
         <br /><br />
@@ -32,25 +41,70 @@
         <label for="estado">Estado</label>
         <input type="text" placeholder=" ... " id="estado" />
         <br /><br />
+
+        <button id="">Salvar Contato</button>
     </form>
 
 
 
 
     <script>
-        async function chamarApi() {
-            const inputCep = document.getElementById("cep").value //digitar o cep que vc deseja 
-            const url = await fetch(`https://viacep.com.br/ws/${inputCep}/json/`) //chama api recebendo o dado(cep) do usuario e processando
-            const dados = await url.json(); //extrai os dados do corpo do json, os dados do endereço
+        const urlLocal = "http://localhost:3000/contatos"
+        async function cadastrar(e) { //cadastrar cep na api
+            e.preventDefault(); //captura o evento de submit do form
+            const nome = document.getElementById("nome").value
+            const telefone = document.getElementById("telefone").value
+            const numerocasa = document.getElementById("numerocasa").value
+            const cep = document.getElementById("cep").value
+            const endereco = document.getElementById("endereco").value
+            const bairro = document.getElementById("bairro").value
+            const cidade = document.getElementById("cidade").value
+            const estado = document.getElementById("estado").value
 
-            
+            const dados = {
+                nome,
+                cep: cep,
+                numerocasa,
+                telefone,
+                endereco,
+                bairro,
+                cidade,
+                estado
+            }
+
+            try {
+                const promise = await fetch(urlLocal, {
+                    //transforma um objeto em json
+                    body: JSON.stringify(dados),
+                    headers: { "Content-Type": "application/json" },
+                    method: "post"
+                });
+
+                const retorno = promise.json(); //pega o retorno da api
+                console.log(retorno);
+
+            } catch (error) {
+                alert(`Deu erro! ${error}`)
+            }
+
+
+        }//fim da função cadastrar
+
+
+        async function chamarApi() {
+            const inputCep = document.getElementById("cep").value //digitar o cep que vc deseja
+
+
             try { //RESOLVIDADE OU FULLFILED
+                const url = await fetch(`https://viacep.com.br/ws/${inputCep}/json/`) //chama api recebendo o dado(cep) do usuario e processando
+                const dados = await url.json(); //extrai os dados do corpo do json, os dados do endereço
 
                 exibirDados(dados) //funcao de exibir os dados quando requisitado
 
             } catch (error) { //REJEITADA OU REJECTED
-                limpaDados(dados)
 
+                document.getElementById("erro").innerText = "CEP inválido";
+                limpaDados(dados)
             }
 
             function exibirDados(dados) {
@@ -58,20 +112,18 @@
                 document.getElementById("cidade").value = dados.localidade;
                 document.getElementById("bairro").value = dados.bairro;
                 document.getElementById("estado").value = dados.uf;
-                document.getElementById("erro").innerText = ""
-
+                document.getElementById("erro").innerText = "Acheeiii!";
                 console.log(dados);
             }
 
             function limpaDados(dados) {
+                document.getElementById("endereco").value = '...';
+                document.getElementById("cidade").value = '...';
+                document.getElementById("bairro").value = '...';
+                document.getElementById("estado").value = '...';
+                document.getElementById("erro").innerText = "";
                 console.log("Deu ruim na API");
-                document.getElementById("erro").innerText = "CEP inválido"
-                document.getElementById("endereco").value = '...'
-                document.getElementById("cidade").value = '...'
-                document.getElementById("bairro").value = '...'
-                document.getElementById("estado").value = '...'
             }
-
         }
     </script>
 </body>
