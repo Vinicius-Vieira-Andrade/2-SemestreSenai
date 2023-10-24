@@ -27,7 +27,7 @@
         <h1 class="titulo">Contact form</h1>
         <p class="descricao">Insira os dados do contato e clique em cadastrar!</p>
 
-        <form action="" onsubmit="chamarCep()" class="formulario-contato">
+        <form action="" class="formulario-contato">
             <div class="linha">
                 <div class="rotulos">
                     <label for="nome">Nome</label>
@@ -80,14 +80,14 @@
                     <label for="pais">Anotações</label>
                 </div>
                 <div class="entradas">
-                    <textarea class="entrada anotacoes" name="anotacoes" id=""
+                    <textarea class="entrada anotacoes" name="anotacoes" id="anotacoes"
                         placeholder="Suas anotações aqui"></textarea>
                 </div>
             </div>
 
             <div class="linha box-botoes">
-                <button type="button" class="btn cadastrar">Cadastrar</button>
-                <button type="button" class="btn limpar">Limpar</button>
+                <button type="button" class="btn cadastrar" onclick="cadastrarContatos(event)">Cadastrar</button>
+                <button type="button" class="btn limpar" onclick="limparCampos()">Limpar</button>
             </div>
         </form>
         <section class="cadastros">
