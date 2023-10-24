@@ -1,0 +1,15 @@
+{
+  "contatos": [
+    {
+      "nome": "Vinicius",
+      "cep": "02857070",
+      "numerocasa": "54",
+      "telefone": "11960741382",
+      "endereco": "Rua Hemisfério",
+      "bairro": "Chácara Belenzinho",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "id": 3
+    }
+  ]
+}

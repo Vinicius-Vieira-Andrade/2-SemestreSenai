@@ -3,10 +3,12 @@ async function chamaCep() {
 
     try {
         const url = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
-        const dados = await url.json()
+        const dados = await url.json();
+
+        dadosCampo(dados);
 
     } catch (error) {
-        document.getElementById("erro").innerText = "CEP inválido";
+      //???
     }
 
     function dadosCampo(dados) {
@@ -14,12 +16,21 @@ async function chamaCep() {
         document.getElementById("sobrenome").value
         document.getElementById("email").value
         document.getElementById("pais").value
-        document.getElementById("ddd").value
+        document.getElementById("ddd").value = dados.ddd
         document.getElementById("telefone").value
-        document.getElementById("cep").value
-        document.getElementById("rua").value
+        document.getElementById("cep").value = dados.cep
+        document.getElementById("rua").value = dados.logradouro
         document.getElementById("numero").value
-        document.getElementById("rua").value
-        document.getElementById("complemento").value
+        document.getElementById("complemento").value = dados.complemento
+        document.getElementById("bairro").value = dados.bairro
+        document.getElementById("cidade").value = dados.localidade
+        document.getElementById("UF").value = dados.uf
+        document.getElementById("anotacoes").value
+
+        console.log(dados);
+    }
+
+    function limpaCampo(dados) {
+        
     }
 }
