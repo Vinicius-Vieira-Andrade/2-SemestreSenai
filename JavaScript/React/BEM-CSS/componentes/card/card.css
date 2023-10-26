@@ -1,0 +1,53 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 275px;
+    height: 30%;
+    border: 1px solid black;
+    border-radius: 10px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.titulo__texto {
+    font-family: monospace;
+    text-transform: uppercase;
+}
+
+.paragrafo__texto {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 50%;
+    text-align: justify;
+}
+
+.conectar {
+    background-color: transparent;
+    width: 50%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+}
+
+.conectar:hover {
+    transition: all 0.2s;
+    color: rgb(19, 191, 19);
+}
+
+.conectar--disabled {
+    background-color: lightgray;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 8px;
+    width: 50%;
+    cursor: not-allowed;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 15px;
+}
+
+.conectar--disabled:hover {
+    color: black;
+}
