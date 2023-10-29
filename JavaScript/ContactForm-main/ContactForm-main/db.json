@@ -3,13 +3,36 @@
     {
       "nome": "Vinicius",
       "cep": "02857070",
-      "numerocasa": "54",
-      "telefone": "11960741382",
-      "endereco": "Rua Hemisfério",
-      "bairro": "Chácara Belenzinho",
+      "sobrenome": "Andrade",
+      "email": "vini@gmail.com",
+      "pais": "55",
+      "ddd": "11",
+      "telefone": "960741382",
+      "rua": "Rua Seis de Novembro",
+      "numero": "54",
+      "complemento": "(Conj Hab Por do Sol)",
+      "bairro": "Jardim Brasília (Zona Norte)",
       "cidade": "São Paulo",
-      "estado": "SP",
-      "id": 3
+      "UF": "SP",
+      "anotacoes": "sdfdfgdfhghfgh",
+      "id": 4
+    },
+    {
+      "nome": "Centro",
+      "cep": "01310930",
+      "sobrenome": "SP",
+      "email": "Centro@gmail.com",
+      "pais": "55",
+      "ddd": "11",
+      "telefone": "960123655",
+      "rua": "Avenida Paulista",
+      "numero": "200",
+      "complemento": "2100",
+      "bairro": "Bela Vista",
+      "cidade": "São Paulo",
+      "UF": "SP",
+      "anotacoes": "blamsljsdlasjfofif",
+      "id": 5
     }
   ]
 }
