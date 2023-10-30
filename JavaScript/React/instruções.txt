@@ -1,0 +1,6 @@
+instalar o nodejs versão LTS
+instalar o create-react-app (npm install -g create-react-app)
+install = i
+-g = global (para usar em projetos futuros)
+
+criar um projeto react (npx create-react-app hello)
