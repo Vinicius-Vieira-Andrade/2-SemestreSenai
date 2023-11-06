@@ -28,7 +28,7 @@ Promoção: ${promoção? "Sim" : "Não"}
 `);
 
 const evento = {
-    dataEvento: new Date(2023, 09, 06),
+    dataEvento: new Date(),
     descricaoEvento: "Brasil Games Show",
     titulo: "BGS",
     presenca: true,
