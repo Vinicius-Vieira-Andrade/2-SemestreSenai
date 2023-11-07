@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../../Header/Header";
+import Title from "../../Title/Title";
 import './TipoEvento.css'
 
 const TipoEvento = () => {
   return (
     <div>
-      <h1>TipoEvento</h1>
+      <Title titleText={"Página Tipos de Eventos"} additionalClass="margem-acima"/>
     </div>
   );
 };

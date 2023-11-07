@@ -6,6 +6,7 @@ import LoginPage from "./components/pages/LoginPage/LoginPage";
 import TipoEvento from "./components/pages/TipoEvento/TipoEvento";
 import TestePage from "./components/pages/TestePage/TestePage";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 const Rotas = () => {
   return (
@@ -18,6 +19,7 @@ const Rotas = () => {
         <Route element={<TipoEvento />} path="/tipo-evento" />
         <Route element={<TestePage />} path="/teste" />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };

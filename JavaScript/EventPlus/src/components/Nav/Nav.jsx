@@ -6,7 +6,7 @@ import logoDesktop from "../../assets/images/images/logo-pink.svg";
 
 const Nav = ({ setExibeNavbar, exibeNavbar }) => {
   return (
-    <nav className={`navbar ${exibeNavbar ? "exibeNavbar" : ""}`}>
+    <nav className={`navbar ${exibeNavbar ? "exibeNavbar" : ""}`}> {/* se o valor da funcao for true, adiciona a classe exibeNavbar, se for false ele traz "", ou seja, nada*/}
       <span
         className="navbar__close"
         onClick={() => {

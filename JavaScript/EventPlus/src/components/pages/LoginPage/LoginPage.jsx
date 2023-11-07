@@ -1,11 +1,11 @@
 import React from "react";
-import Header from "../../Header/Header";
+import Title from "../../Title/Title";
 import "./LoginPage.css";
 
 const LoginPage = () => {
   return (
     <div>
-      <h1>LoginPage</h1>
+      <Title titleText={"Página de Login"} additionalClass={"margem-acima"}/>
     </div>
   );
 };

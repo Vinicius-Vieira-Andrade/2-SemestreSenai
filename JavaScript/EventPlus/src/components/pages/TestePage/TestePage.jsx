@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Button from "../../Button/Button"; 
-import Header from "../../Header/Header";
+import Title from "../../Title/Title";
 import Input from "../../Input/Input"; //importando o componente que irei usar
+import "./TestePage.css"
 
 const TestePage = () => {
   const [total, setTotal] = useState();
@@ -14,7 +15,7 @@ const TestePage = () => {
   }
   return (
     <>
-      <h1>Calculadora</h1>
+      <Title titleText={"Calculadora"} additionalClass={"margem-acima"}/>
       <form onSubmit={handlerCalcular}>
         <Input tipo="number" valor={n1} id="numero1" nome="numero1" dicaCampo="Primeiro Número" fnAltera={setN1}/> {/*chamando o componente criado para renderizar na tela*/}
         <Input tipo="number" valor={n2} id="numero2" nome="numero2" dicaCampo="Segundo Número" fnAltera={setN2}/>
