@@ -1,5 +1,5 @@
 import React from 'react';
-import Title from '../../Title/Title';
+import Title from '../../components/Title/Title';
 import './EventoPage.css'
 
 const EventoPage = () => {
