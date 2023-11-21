@@ -2,7 +2,6 @@ import React from "react";
 import "./TableTp.css";
 import editPen from "../../../assets/images/images/edit-pen.svg";
 import trashDelete from "../../../assets/images/images/trash-delete.svg";
-import Title from "../../../components/Title/Title";
 
 const TableTp = ({ dados, fnUpdate, fnDelete }) => {
   return (
@@ -33,7 +32,7 @@ const TableTp = ({ dados, fnUpdate, fnDelete }) => {
                 src={editPen}
                 alt=""
                 onClick={() => {
-                  fnUpdate();
+                  fnUpdate(dd.idTipoEvento);
                 }}
               />
             </td>
