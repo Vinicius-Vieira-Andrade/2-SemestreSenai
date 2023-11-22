@@ -21,20 +21,24 @@ const TipoEvento = () => {
   const [showSpinner, setShowSpinner] = useState(false);
   // const [idTipoEvento, setIdTipoEvento] = useState(null);
 
-  useEffect(() => {
-    async function getTipoEventos() {
-      setShowSpinner(true);
-      try {
-        const promise = await api.get(`/TiposEvento`);
-        console.log(promise); //exibe console
-        setTipoEventos(promise.data);
-      } catch (error) {
-        console.log("Moiô");
-      }
-      setShowSpinner(false);
+
+  async function getTipoEventos() {
+    setShowSpinner(true);
+    try {
+      const promise = await api.get(`/TiposEvento`);
+      console.log(promise); //exibe console
+      setTipoEventos(promise.data);
+    } catch (error) {
+      console.log("Moiô");
     }
+    setShowSpinner(false);
+  }
+
+  useEffect(() => {
     getTipoEventos();
-  }, [tipoEventos]);
+  }, []);
+
+  
 
   async function handlePost(e) {
     //parar o submit do form
@@ -58,7 +62,7 @@ const TipoEvento = () => {
           "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
         showMessage: true,
       });
-
+      getTipoEventos();
       setTitulo(""); //limpa a variavel
     } catch (error) {
       console.log("Deu ruim na API");
@@ -92,6 +96,8 @@ const TipoEvento = () => {
         titulo: titulo,
       });
 
+      getTipoEventos();
+
       setNotifyUser({
         titleNote: "Sucesso",
         textNote: `Atualizado com sucesso!`,
@@ -122,10 +128,11 @@ const TipoEvento = () => {
     try {
       const retorno = await api.delete(`/TiposEvento/${id}`);
       // const promise = await api.get(`/TiposEvento`);
+      getTipoEventos();
     } catch (error) {
       console.log("não apagou hahah");
     }
-    handlerDelete(id);
+    
   }
 
   //CONTEUDO VISUAL DA PAGINA

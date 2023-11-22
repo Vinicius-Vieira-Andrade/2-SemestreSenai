@@ -2,6 +2,7 @@ import React from "react";
 import "./TableTp.css";
 import editPen from "../../../assets/images/images/edit-pen.svg";
 import trashDelete from "../../../assets/images/images/trash-delete.svg";
+import TipoEvento from "../TipoEvento";
 
 const TableTp = ({ dados, fnUpdate, fnDelete }) => {
   return (
@@ -23,7 +24,7 @@ const TableTp = ({ dados, fnUpdate, fnDelete }) => {
       <tbody>
         {dados.map((dd) => {
             return (
-                <tr className="table-data__head-row">
+                <tr className="table-data__head-row" key={dd.idTipoEvento}>
             <td className="table-data__data table-data__data--big"> {dd.titulo}</td>
 
             <td className="table-data__data table-data__data--little">

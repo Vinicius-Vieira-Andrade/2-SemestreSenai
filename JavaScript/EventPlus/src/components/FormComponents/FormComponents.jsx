@@ -28,6 +28,15 @@ export const Input = ({
 
 }
 
+
+
+
+
+
+
+
+
+
 //componente dinâmico
 export const Button = ({ manipulationFunction, textButton, id, name, type, additionalClass }) => {
     return(
