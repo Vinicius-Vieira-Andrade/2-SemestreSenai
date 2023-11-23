@@ -3,7 +3,7 @@ import "./TableEp.css";
 import editPen from "../../../assets/images/images/edit-pen.svg";
 import trashDelete from "../../../assets/images/images/trash-delete.svg";
 
-const TableEp = ({ dados, fnUpdate, fnDelete, eventDate}) => {
+const TableEp = ({ dados, fnUpdate, fnDelete}) => {
   return (
     <table className="table-data">
       <thead className="table-data__head">
@@ -14,12 +14,9 @@ const TableEp = ({ dados, fnUpdate, fnDelete, eventDate}) => {
           <th className="table-data__head-title table-data__head-title--little">
             Descrição
           </th>
-          <th className="table-data__head-title table-data__head-title--little">
+           <th className="table-data__head-title table-data__head-title--little">
             Tipo de Evento
-          </th>
-          <th className="table-data__head-title table-data__head-title--little">
-            Instituição
-          </th>
+          </th> 
           <th className="table-data__head-title table-data__head-title--little">
             Data
           </th>
@@ -38,10 +35,9 @@ const TableEp = ({ dados, fnUpdate, fnDelete, eventDate}) => {
                 <tr className="table-data__head-row" key={dados.idEvento}>
             <td className="table-data__data table-data__data--little"> {dados.nomeEvento}</td>
             <td className="table-data__data table-data__data--little"> {dados.descricao}</td>
-            <td className="table-data__data table-data__data--little"> {dados.idInstituicao}</td>
-            <td className="table-data__data table-data__data--little"> {dados.idTipoEvento}</td>
-            <td className="table-data__data table-data__data--little"> {dados.dataEvento}</td>
-            {/* {(new Date(eventDate).toLocaleDateString())} */}
+            {/* <td className="table-data__data table-data__data--little"> {dados.titulo}</td> */}
+            <td className="table-data__data table-data__data--little"> {(new Date(dados.dataEvento).toLocaleDateString())}</td>
+            
 
             <td className="table-data__data table-data__data--little">
               <img

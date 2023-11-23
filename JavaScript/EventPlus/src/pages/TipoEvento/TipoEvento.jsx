@@ -73,10 +73,10 @@ const TipoEvento = () => {
   //FUNÇÕES DE EDITAR CADASTRO
 
   //MUDA TELA PARA ATUALIZAÇÃO
-  async function showUpdateForm(idElemento) {
+  async function showUpdateForm(id) {
     setFrmEdit(true);
     try {
-      const promise = await api.get(`/TiposEvento/` + idElemento);
+      const promise = await api.get(`/TiposEvento/` + id);
       setTitulo(promise.data.titulo);
       setIdEvento(promise.data.idTipoEvento);
 
@@ -111,14 +111,14 @@ const TipoEvento = () => {
       //atualizar o state (api get)
       const retornoGet = await api.get(`/TiposEvento`);
       setTipoEventos(retornoGet.data); //atualiza o state da tabela
-      editActionAbort(); //limpa o state do titulo e id
+      cancelaEdit(); //limpa o state do titulo e id
     } catch (error) {
       alert("Deu ruim no update");
     }
   }
 
   //CANCELA AÇÃO ATUALIZAÇÃO E RESETA O STATE
-  function editActionAbort() {
+  function cancelaEdit() {
     setFrmEdit(false);
     setTitulo("");
     setIdEvento(null);
@@ -177,6 +177,7 @@ const TipoEvento = () => {
                     type={"submit"}
                     className={"button-component"}
                     textButton={"Cadastrar"}
+                    manipulationFunction={handlePost}
                   />
                 </>
               ) : (
@@ -209,7 +210,7 @@ const TipoEvento = () => {
                       type={"reset"}
                       additionalClass={"button-component--middle"}
                       textButton={"Cancelar"}
-                      manipulationFunction={editActionAbort}
+                      manipulationFunction={cancelaEdit}
                     />
                   </div>
                 </>
