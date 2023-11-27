@@ -10,7 +10,7 @@ export const Input = ({
   additionalClass = "",
   name,
   placeholder,
-  manipulationFunction,
+  manipulationFunction
 }) => {
   return (
     <input

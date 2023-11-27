@@ -77,7 +77,6 @@ const EventoPage = () => {
         idInstituicao: instituicao,
         dataEvento: data
       });
-      getEventos();
 
       setNotifyUser({
         titleNote: "Sucesso",
@@ -88,13 +87,17 @@ const EventoPage = () => {
         showMessage: true,
       });
 
+      getEventos();
+      setDescription('')
+      setTitulo('')
+      setData('')
+
     } catch (error) {
       console.log("Deu ruim na API");
       console.log(error);
     }
 
     setTitulo(""); //limpa a variavel
-    setTitulo("");
     setDescription("");
     setData("");
   }
@@ -104,6 +107,10 @@ const EventoPage = () => {
     try {
       const retorno = await api.put(`/Evento/` + idEvento, {
         titulo: titleEvento,
+        descricao: description,
+        idTipoEvento: tipoEventos,
+        idInstituicao: instituicao,
+        dataEvento: data
       });
 
       setNotifyUser({
