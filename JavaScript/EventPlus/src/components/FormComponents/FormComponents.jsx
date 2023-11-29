@@ -37,7 +37,7 @@ export const SelectTipoEventos = ({
     required, 
     additionalClass = "",
     manipulationFunction,
-    defaultValue
+    value
 }) => {
     return (
     <select
@@ -46,11 +46,11 @@ export const SelectTipoEventos = ({
       id={id}
       className={`input-component ${additionalClass}`}
       onChange={manipulationFunction}
-      value={defaultValue}
+      value={value}
     >
-      <option value="select1">Selecione uma opção</option>
+      <option value="select1">Selecione um tipo de evento</option>
       {dados.map((opt) => {
-        return <option value={opt.idTipoEventos}>{opt.titulo}</option>;
+        return <option key={opt.idTipoEvento} value={opt.idTipoEvento}>{opt.titulo}</option>;
       })}
     </select>
   );
@@ -63,7 +63,7 @@ export const SelectInstituicao = ({
     required, 
     additionalClass = "",
     manipulationFunction,
-    defaultValue
+    value
 }) => {
     return (
     <select
@@ -72,11 +72,11 @@ export const SelectInstituicao = ({
       id={id}
       className={`input-component ${additionalClass}`}
       onChange={manipulationFunction}
-      value={defaultValue}
+      value={value}
     >
-      <option value="select2">Selecione uma opção</option>
+      <option value="select2">Selecione uma instituição</option>
       {dados.map((opt) => {
-        return <option value={opt.idInstituicao}>{opt.nomeFantasia}</option>;
+        return <option key={opt.idInstituicao} value={opt.idInstituicao}>{opt.nomeFantasia}</option>;
       })}
     </select>
   );

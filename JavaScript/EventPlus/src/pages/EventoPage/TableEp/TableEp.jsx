@@ -8,7 +8,7 @@ const TableEp = ({ dados, fnUpdate, fnDelete}) => {
     <table className="table-data">
       <thead className="table-data__head">
         <tr className="table-data__head-row">
-          <th className="table-data__head-title table-data__head-title--big">
+          <th className="table-data__head-title table-data__head-title--little">
             Evento
           </th>
           <th className="table-data__head-title table-data__head-title--little">
@@ -35,6 +35,7 @@ const TableEp = ({ dados, fnUpdate, fnDelete}) => {
                 <tr className="table-data__head-row" key={dados.idEvento}>
             <td className="table-data__data table-data__data--little"> {dados.nomeEvento}</td>
             <td className="table-data__data table-data__data--little"> {dados.descricao}</td>
+            <td className="table-data__data table-data__data--little"> {dados.tiposEvento.titulo}</td>
             {/* <td className="table-data__data table-data__data--little"> {dados.titulo}</td> */}
             <td className="table-data__data table-data__data--little"> {(new Date(dados.dataEvento).toLocaleDateString())}</td>
             
@@ -45,7 +46,7 @@ const TableEp = ({ dados, fnUpdate, fnDelete}) => {
                 src={editPen}
                 alt=""
                 onClick={() => {
-                  fnUpdate(dados.idEvento);
+                  fnUpdate(dados);
                 }}
               />
             </td>

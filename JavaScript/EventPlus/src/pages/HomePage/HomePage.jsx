@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Banner from "../../components/Banner/Banner";
 import ContactSection from "../../components/ContactSection/ContactSection";
 import Container from "../../components/Container/Container";
@@ -8,14 +8,22 @@ import Title from "../../components/Title/Title";
 import VisionSection from "../../components/VisionSection/VisionSection";
 import api from "../../Services/Services";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 
 import "./HomePage.css";
+import { userContext } from "../../context/AuthContext";
 
 const HomePage = () => {
+  const { userData } = useContext(userContext);
+
+  console.log("DADOS DO USUARIO");
+  console.log(userData);
+
+
+
   useEffect(() => {
     async function getProximosEventos() {
       try {
@@ -45,14 +53,11 @@ const HomePage = () => {
 
           <div className="events-box">
             <Swiper
-             spaceBetween={20}
-             slidesPerView={3}
-
-             pagination={{dynamicBullet: true, clickable: true}}
-
-             modules={[Pagination]}
-             className="mySwiper"
-
+              spaceBetween={20}
+              slidesPerView={3}
+              pagination={{ dynamicBullet: true, clickable: true }}
+              modules={[Pagination]}
+              className="mySwiper"
             >
               {/*chaves permitindo usar javascript*/}
               {nextEvents.map((e) => {

@@ -6,7 +6,6 @@ import Container from "../../components/Container/Container";
 import {
   Button,
   Input,
-  Select,
   SelectInstituicao,
   SelectTipoEventos,
 } from "../../components/FormComponents/FormComponents";
@@ -21,6 +20,8 @@ const EventoPage = () => {
   const [titleEvento, setTitulo] = useState("");
   const [description, setDescription] = useState("");
   const [tipoEventos, setTipoEventos] = useState([]);
+  const [idTipoEvento, setIdTipoEvento] = useState("");
+  const [idInstituicao, setIdInstituicao] = useState("");
   const [instituicao, setInstituicao] = useState([]);
   const [data, setData] = useState("");
 
@@ -73,9 +74,9 @@ const EventoPage = () => {
       const retorno = await api.post("/Evento", {
         nomeEvento: titleEvento,
         descricao: description,
-        idTipoEvento: tipoEventos,
-        idInstituicao: instituicao,
-        dataEvento: data
+        idTipoEvento: idTipoEvento,
+        idInstituicao: idInstituicao,
+        dataEvento: data,
       });
 
       setNotifyUser({
@@ -88,10 +89,9 @@ const EventoPage = () => {
       });
 
       getEventos();
-      setDescription('')
-      setTitulo('')
-      setData('')
-
+      setDescription("");
+      setTitulo("");
+      setData("");
     } catch (error) {
       console.log("Deu ruim na API");
       console.log(error);
@@ -106,11 +106,11 @@ const EventoPage = () => {
     e.preventDefault();
     try {
       const retorno = await api.put(`/Evento/` + idEvento, {
-        titulo: titleEvento,
+        nomeEvento: titleEvento,
         descricao: description,
-        idTipoEvento: tipoEventos,
-        idInstituicao: instituicao,
-        dataEvento: data
+        idTipoEvento: idTipoEvento,
+        idInstituicao: idInstituicao,
+        dataEvento: data,
       });
 
       setNotifyUser({
@@ -121,6 +121,13 @@ const EventoPage = () => {
           "Imagem de ilustração de sucesso. Moça segurando um balão com símbolo de confirmação ok.",
         showMessage: true,
       });
+
+      setTitulo(""); //limpa a variavel
+      setDescription("");
+      setData("");
+      setIdInstituicao("");
+      setIdTipoEvento("");
+      setFrmEdit(false);
 
       //atualizar o state (api get)
       const retornoGet = await api.get(`/Evento`);
@@ -133,26 +140,22 @@ const EventoPage = () => {
 
   function editActionAbort() {
     setFrmEdit(false);
-    setIdEvento(null);
-    setTitulo("");
-    setDescription("");
-    setData("");
+    setData("")
+    setTitulo("")
+    setDescription("")
+    setIdInstituicao("")
+    setIdTipoEvento("")
   }
 
-  async function mostraUpdate(idElemento) {
+  async function mostraUpdate(e) {
     setFrmEdit(true);
-    try {
-      const promise = await api.get(`/Evento/` + idElemento);
-      setTitulo(promise.data.titulo);
-      setIdEvento(promise.data.idEvento);
-
-      //  setIdTipoEvento(tipoEventos.find((tipoEvento) => tipoEvento.idTipoEvento === idElemento).idTipoEvento);
-      //  setTitulo(tipoEventos.titulo)
-    } catch (error) {
-      alert("deu ruim");
-    }
+    setData(e.dataEvento.slice(0, 10))
+    setTitulo(e.titulo)
+    setDescription(e.descricao)
+    setIdInstituicao(e.idInstituicao)
+    setIdTipoEvento(e.idTipoEvento)
+    setIdEvento(e.idEvento)
   }
-
   async function handlerDelete(id) {
     try {
       const retorno = await api.delete(`/Evento/${id}`);
@@ -206,11 +209,12 @@ const EventoPage = () => {
 
                     <SelectTipoEventos
                       dados={tipoEventos}
-                      id="idTipoEVentos"
+                      id="idTipoEvento"
                       placeholder="Tipo de Eventos"
-                      name="idTipoEventos"
+                      name="idTipoEvento"
+                      value={idTipoEvento}
                       manipulationFunction={(e) => {
-                        setTipoEventos(e.target.value);
+                        setIdTipoEvento(e.target.value);
                       }}
                     />
 
@@ -219,8 +223,9 @@ const EventoPage = () => {
                       id="idInstituicao"
                       placeholder="Instituição"
                       name="idInstituicao"
+                      value={idInstituicao}
                       manipulationFunction={(e) => {
-                        setInstituicao(e.target.value);
+                        setIdInstituicao(e.target.value);
                       }}
                     />
 
@@ -271,11 +276,16 @@ const EventoPage = () => {
                         setDescription(e.target.value);
                       }}
                     />
+
                     <SelectTipoEventos
                       dados={tipoEventos}
-                      id="idTipoEVentos"
+                      id="idTipoEvento"
                       placeholder="Tipo de Eventos"
-                      name="idTipoEventos"
+                      name="idTipoEvento"
+                      value={idTipoEvento}
+                      manipulationFunction={(e) => {
+                        setIdTipoEvento(e.target.value);
+                      }}
                     />
 
                     <SelectInstituicao
@@ -283,7 +293,12 @@ const EventoPage = () => {
                       id="idInstituicao"
                       placeholder="Instituição"
                       name="idInstituicao"
+                      value={idInstituicao}
+                      manipulationFunction={(e) => {
+                        setIdInstituicao(e.target.value);
+                      }}
                     />
+
                     <Input
                       id={"data"}
                       name={"data"}
@@ -303,7 +318,6 @@ const EventoPage = () => {
                         type={"submit"}
                         textButton={"Atualizar"}
                         additionalClass={"button-component--middle"}
-                        manipulationFunction={handleUpdate}
                       />
 
                       <Button
