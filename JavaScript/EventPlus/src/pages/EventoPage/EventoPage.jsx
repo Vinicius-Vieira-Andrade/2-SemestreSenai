@@ -15,6 +15,7 @@ import Notification from "../../components/Notification/Notification";
 import EventTypeImage from "../../assets/images/images/evento.svg";
 import TableEp from "./TableEp/TableEp";
 import { useEffect } from "react";
+import Spinner from "../../components/Spinner/Spinner";
 
 const EventoPage = () => {
   const [titleEvento, setTitulo] = useState("");
@@ -33,11 +34,13 @@ const EventoPage = () => {
 
   async function getEventos() {
     try {
+      setShowSpinner(true);
       const retorno = await api.get(`/Evento`);
       setEventos(retorno.data);
     } catch (error) {
       console.log("moio");
     }
+    setShowSpinner(false);
   }
 
   async function getInstituicao() {
@@ -140,21 +143,21 @@ const EventoPage = () => {
 
   function editActionAbort() {
     setFrmEdit(false);
-    setData("")
-    setTitulo("")
-    setDescription("")
-    setIdInstituicao("")
-    setIdTipoEvento("")
+    setData("");
+    setTitulo("");
+    setDescription("");
+    setIdInstituicao("");
+    setIdTipoEvento("");
   }
 
   async function mostraUpdate(e) {
     setFrmEdit(true);
-    setData(e.dataEvento.slice(0, 10))
-    setTitulo(e.titulo)
-    setDescription(e.descricao)
-    setIdInstituicao(e.idInstituicao)
-    setIdTipoEvento(e.idTipoEvento)
-    setIdEvento(e.idEvento)
+    setData(e.dataEvento.slice(0, 10));
+    setTitulo(e.titulo);
+    setDescription(e.descricao);
+    setIdInstituicao(e.idInstituicao);
+    setIdTipoEvento(e.idTipoEvento);
+    setIdEvento(e.idEvento);
   }
   async function handlerDelete(id) {
     try {
@@ -169,6 +172,7 @@ const EventoPage = () => {
   return (
     <MainContent>
       <Notification {...notifyUser} setNotifyUser={setNotifyUser} />
+      {showSpinner ? <Spinner /> : null}
       <Container>
         <section className="cadastro-evento-section">
           <Container>

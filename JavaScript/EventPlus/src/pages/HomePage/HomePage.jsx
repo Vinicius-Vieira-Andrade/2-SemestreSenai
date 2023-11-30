@@ -14,15 +14,13 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 
 import "./HomePage.css";
-import { userContext } from "../../context/AuthContext";
+import { UserContext } from "../../context/AuthContext";
 
 const HomePage = () => {
-  const { userData } = useContext(userContext);
+  const { userData } = useContext(UserContext);
 
   console.log("DADOS DO USUARIO");
   console.log(userData);
-
-
 
   useEffect(() => {
     async function getProximosEventos() {
@@ -54,7 +52,7 @@ const HomePage = () => {
           <div className="events-box">
             <Swiper
               spaceBetween={20}
-              slidesPerView={3}
+              slidesPerView={ window.innerWidth > 992 ? 3 : 1}
               pagination={{ dynamicBullet: true, clickable: true }}
               modules={[Pagination]}
               className="mySwiper"
