@@ -7,17 +7,44 @@ import TipoEvento from "../pages/TipoEvento/TipoEvento";
 import TestePage from "../pages/TestePage/TestePage";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import { PrivateRoute } from "./PrivateRoute";
+import EventoAlunoPage from "../pages/EventoAlunoPage/EventoAlunoPage";
 
 const Rotas = () => {
   return (
     <BrowserRouter>
       <Header /> {/* em todas as telas o header será aplicado! */}
       <Routes>
-        <Route element={<HomePage />} path="/" exact />
-        <Route element={<EventoPage />} path="/evento" />
         <Route element={<LoginPage />} path="/login" />
-        <Route element={<TipoEvento />} path="/tipo-evento" />
+        <Route element={<HomePage />} path="/" exact />
         <Route element={<TestePage />} path="/teste" />
+
+        <Route
+          path="/evento"
+          element={
+            //ROTA PRIVADA, SÓ SERÁ POSSÍVEL ACESSAR ESTANDO LOGADO
+            <PrivateRoute>
+              <EventoPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/tipo-evento"
+          element={
+            <PrivateRoute redirectTo="/">
+              <TipoEvento />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/evento-aluno"
+          element={
+            //ROTA PRIVADA, SÓ SERÁ POSSÍVEL ACESSAR ESTANDO LOGADO
+            <PrivateRoute>
+              <EventoAlunoPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <Footer />
     </BrowserRouter>

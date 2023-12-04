@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
 import logoMobile from "../../assets/images/images/logo-white.svg";
 import logoDesktop from "../../assets/images/images/logo-pink.svg";
+import { UserContext } from "../../context/AuthContext";
 
 const Nav = ({ setExibeNavbar, exibeNavbar }) => {
+  const { userData } = useContext(UserContext);
+
   return (
-    <nav className={`navbar ${exibeNavbar ? "exibeNavbar" : ""}`}> {/* se o valor da funcao for true, adiciona a classe exibeNavbar, se for false ele traz "", ou seja, nada*/}
+    <nav className={`navbar ${exibeNavbar ? "exibeNavbar" : ""}`}>
+      {" "}
+      {/* se o valor da funcao for true, adiciona a classe exibeNavbar, se for false ele traz "", ou seja, nada*/}
       <span
         className="navbar__close"
         onClick={() => {
@@ -23,12 +28,25 @@ const Nav = ({ setExibeNavbar, exibeNavbar }) => {
         />
       </Link>
 
+
       <div className="navbar__items-box">
-        <Link to="/" className="navbar__item">Home</Link>
-        <Link to="/tipo-evento" className="navbar__item">Tipo Eventos</Link>
-        <Link to="/evento" className="navbar__item">Eventos</Link>
-        <Link to="/login" className="navbar__item">Login</Link>
-        <Link to="/teste" className="navbar__item">Teste</Link>
+        <Link to="/" className="navbar__item">
+          Home
+        </Link> {/* SIMPLESMENTE TERNÁRIO ENCADEADO 🥶 */}
+        {userData.role === "Administrador" ? ( //if
+          <>
+            <Link to="/tipo-evento" className="navbar__item">
+              Tipo Eventos
+            </Link>
+            <Link to="/evento" className="navbar__item">
+              Eventos
+            </Link>
+          </>
+        ) : userData.role === "Comum" ? ( //else if
+          <Link to="/evento-aluno" className="navbar__item">
+            Eventos
+          </Link>
+        ) : null /*else*/} 
       </div>
     </nav>
   );

@@ -86,8 +86,7 @@ namespace webapi.event_.Repositories
         }
 
   
-
-
+       
 
         public List<Evento> Listar()
         {
