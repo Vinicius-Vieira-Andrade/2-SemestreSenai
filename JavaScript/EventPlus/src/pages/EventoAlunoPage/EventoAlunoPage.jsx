@@ -72,7 +72,7 @@ const EventoAlunoPage = () => {
             `/PresencaEvento/ListarMinhasPresencas/${userData.userId}`
           );
           retornoPresencas.data.forEach((element) => {
-            arrayEvento.push(element.evento);
+            arrayEvento.push({...element.evento, situacao : element.situacao});
             setEventos(arrayEvento);
           });
         }
@@ -83,7 +83,7 @@ const EventoAlunoPage = () => {
     }
 
     loadEventsType();
-  }, [tipoEvento]);
+  }, [tipoEvento, userData.userId]);
 
   // toggle meus eventos ou todos os eventos
   function myEvents(tpEvent) {
@@ -103,7 +103,7 @@ const EventoAlunoPage = () => {
   };
 
   function handleConnect() {
-    alert("Desenvolver a função conectar evento");
+    // alert("Desenvolver a função conectar evento");
   }
   return (
     <>
