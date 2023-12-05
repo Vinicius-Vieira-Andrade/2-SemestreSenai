@@ -2,10 +2,10 @@ import React from "react";
 
 import "./Toggle.css";
 
-const Toggle = ({ manipulationFunction = null, toggleActive = false }) => {
+const Toggle = ({ manipulationFunction = null, toggleActive = true }) => {
   return (
     <>
-      {/* <input type="checkbox" id="switch-check" className="toggle__switch-check" /> */}
+      <input type="checkbox" id="switch-check" className="toggle__switch-check" />
 
       <label
         className={`toggle ${toggleActive ? "toggle--active" : ""}`}
