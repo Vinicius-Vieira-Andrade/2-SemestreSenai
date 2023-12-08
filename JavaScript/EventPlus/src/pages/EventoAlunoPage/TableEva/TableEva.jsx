@@ -1,7 +1,7 @@
 import React from "react";
 import comentaryIcon from "../../../assets/images/images/comentary-icon.svg";
 import trashDelete from "../../../assets/images/images/trash-delete.svg";
-import { formataDataDbToView } from "../../../Utils/stringFunction"
+import { formataDataDbToView } from "../../../Utils/stringFunction";
 import ToggleSwitch from "../../../components/Toggle/Toggle";
 // importa a biblioteca de tootips ()
 import "react-tooltip/dist/react-tooltip.css";
@@ -33,7 +33,7 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
               <td className="tbal-data__data tbal-data__data--big">
                 {e.nomeEvento}
               </td>
-              
+
               <td className="tbal-data__data tbal-data__data--big tbal-data__btn-actions">
                 {/* {e.dataEvento} */}
                 {formataDataDbToView(e.dataEvento)}
@@ -48,7 +48,16 @@ const Table = ({ dados, fnConnect = null, fnShowModal = null }) => {
                   onClick={fnShowModal}
                 />
 
-                <ToggleSwitch toggleActive={e.situacao} manipulationFunction={fnConnect} />
+                <ToggleSwitch
+                  toggleActive={e.situacao}
+                  manipulationFunction={() => {
+                    fnConnect(
+                      e.idEvento,
+                      e.idPresencaEvento,
+                      e.situacao ? false : true
+                    );
+                  }}
+                />
               </td>
             </tr>
           );

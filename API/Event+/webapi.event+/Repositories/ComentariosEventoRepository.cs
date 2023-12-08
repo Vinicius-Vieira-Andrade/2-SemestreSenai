@@ -13,7 +13,7 @@ namespace webapi.event_.Repositories
             _context = new Event_Context();
         }
 
-        public ComentariosEvento BuscarPorId(Guid id)
+        public ComentariosEvento BuscarPorId(Guid idUsuario, Guid idEvento)
         {
             try
             {
@@ -22,6 +22,9 @@ namespace webapi.event_.Repositories
                     {
                         Descricao = c.Descricao,
                         Exibe = c.Exibe,
+                        IdUsuario = c.IdUsuario,
+                        IdComentarioEvento = c.IdComentarioEvento,
+                        IdEvento = c.IdEvento,
 
                         Usuario = new Usuario
                         {
@@ -33,7 +36,40 @@ namespace webapi.event_.Repositories
                             NomeEvento = c.Evento!.NomeEvento,
                         }
 
-                    }).FirstOrDefault(c => c.IdComentarioEvento == id)!;
+                    }).FirstOrDefault(c => c.IdComentarioEvento == idUsuario && c.IdUsuario == idUsuario)!;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+
+        public ComentariosEvento BuscarPorIdUsuario(Guid idUsuario, Guid idEvento)
+        {
+            try
+            {
+                return _context.ComentariosEvento
+                    .Select(c => new ComentariosEvento
+                    {
+                        Descricao = c.Descricao,
+                        Exibe = c.Exibe,
+                        IdUsuario = c.IdUsuario,
+                        IdComentarioEvento = c.IdComentarioEvento,
+                        IdEvento = c.IdEvento,
+
+
+                        Usuario = new Usuario
+                        {
+                            Nome = c.Usuario!.Nome
+                        },
+
+                        Evento = new Evento
+                        {
+                            NomeEvento = c.Evento!.NomeEvento,
+                        }
+
+                    }).FirstOrDefault(c => c.IdUsuario == idUsuario && c.IdEvento == idEvento)!;
             }
             catch (Exception)
             {
@@ -46,6 +82,7 @@ namespace webapi.event_.Repositories
             try
             {
                 _context.ComentariosEvento.Add(comentarioEvento);
+                _context.SaveChanges();
             }
             catch (Exception)
             {
@@ -82,6 +119,9 @@ namespace webapi.event_.Repositories
                     {
                         Descricao = c.Descricao,
                         Exibe = c.Exibe,
+                        IdUsuario = c.IdUsuario,
+                        IdComentarioEvento = c.IdComentarioEvento,
+                        IdEvento = c.IdEvento,
 
                         Usuario = new Usuario
                         {

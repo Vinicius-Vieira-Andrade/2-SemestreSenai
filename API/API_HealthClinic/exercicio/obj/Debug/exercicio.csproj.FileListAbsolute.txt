@@ -1,0 +1,17 @@
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\bin\Debug\exercicio.exe.config
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\bin\Debug\exercicio.exe
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\bin\Debug\exercicio.pdb
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\bin\Debug\EntityFramework.dll
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\bin\Debug\EntityFramework.xml
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.csproj.AssemblyReference.cache
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.csproj.SuggestedBindingRedirects.cache
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.Form1.resources
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.Properties.Resources.resources
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.csproj.GenerateResource.cache
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.csproj.CoreCompileInputs.cache
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.csproj.CopyComplete
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.exe
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.pdb
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\API_HealthClinic\exercicio\obj\Debug\exercicio.cadastro.resources
