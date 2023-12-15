@@ -524,3 +524,6 @@ C:\Users\viniv\Desktop\2-SemestreSenai\API\Event+\webapi.event+\obj\Release\net7
 C:\Users\viniv\Desktop\2-SemestreSenai\API\Event+\webapi.event+\obj\Release\net7.0\webapi.event+.csproj.CopyComplete
 C:\Users\viniv\Desktop\2-SemestreSenai\API\Event+\webapi.event+\obj\Release\net7.0\webapi.event+.genruntimeconfig.cache
 C:\Users\viniv\Desktop\2-SemestreSenai\API\Event+\webapi.event+\obj\Release\net7.0\ref\webapi.event+.dll
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\Event+\webapi.event+\bin\Release\net7.0\Microsoft.Azure.CognitiveServices.ContentModerator.dll
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\Event+\webapi.event+\bin\Release\net7.0\Microsoft.Rest.ClientRuntime.dll
+C:\Users\53685550837\Desktop\2-SemestreSenai\API\Event+\webapi.event+\bin\Release\net7.0\Microsoft.Rest.ClientRuntime.Azure.dll

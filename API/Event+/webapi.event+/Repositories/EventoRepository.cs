@@ -131,5 +131,18 @@ namespace webapi.event_.Repositories
                 throw;
             }
         }
+
+        public List<Evento> ListarAntigos()
+        {
+            try
+            {
+                return _context.Evento
+                    .Where(e => e.DataEvento <= DateTime.Now).OrderBy(e => e.DataEvento).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
