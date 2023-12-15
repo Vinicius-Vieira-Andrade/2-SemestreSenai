@@ -11973,19 +11973,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\53685550837\\.nuget\\packages\\": {}
+    "C:\\Users\\viniv\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\53685550837\\Desktop\\2-SemestreSenai\\API\\Event+\\webapi.event+\\webapi.event+.csproj",
+      "projectUniqueName": "C:\\Users\\viniv\\Desktop\\2-SemestreSenai\\API\\Event+\\webapi.event+\\webapi.event+.csproj",
       "projectName": "webapi.event+",
-      "projectPath": "C:\\Users\\53685550837\\Desktop\\2-SemestreSenai\\API\\Event+\\webapi.event+\\webapi.event+.csproj",
-      "packagesPath": "C:\\Users\\53685550837\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\53685550837\\Desktop\\2-SemestreSenai\\API\\Event+\\webapi.event+\\obj\\",
+      "projectPath": "C:\\Users\\viniv\\Desktop\\2-SemestreSenai\\API\\Event+\\webapi.event+\\webapi.event+.csproj",
+      "packagesPath": "C:\\Users\\viniv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\viniv\\Desktop\\2-SemestreSenai\\API\\Event+\\webapi.event+\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\53685550837\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\viniv\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12079,7 +12079,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
